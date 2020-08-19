@@ -10,6 +10,8 @@
   "author": "Jyles Coad-Ward [jyles@dariox.club]",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^4.2.1",
+    "postcss-loader": "^3.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
