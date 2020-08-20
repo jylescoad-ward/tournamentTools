@@ -22,6 +22,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "battlegrounds": "^1.5.2",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20"
   }
