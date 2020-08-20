@@ -25,53 +25,53 @@
 		</nav>
 
 		<main role="main" class="container">
-			<div class="console-output">
-				<p>Console Output</p>
-				<code id="tourn-consoleout" class="tournament">
-
-				</code>
-			</div>
-
 			<!-- actual dropdown stuff -->
 			<div class="processing">
+
+				<!-- ==== Match Result ==== -->
+				<div class="result">
+					<h3>Result</h3>
+				</div>
+
 				<!-- ==== Export Match Data ==== -->
-					<div class="panel panel-primary">
-				        <div class="panel-heading clickable">
-				    		<h3 class="panel-title">Export Match Data</h3>
-				    	</div>
-				    	<div class="panel-body">
-								<div class="form-group">
-									<label for="exportMatchRAW-platformSelect">Platform</label>
-									<select class="form-control" id="exportMatchRAW-platformSelect">
-										<option>PSN</option>
-										<option>Steam</option>
-										<option>Tournament</option>
-										<option>Xbox</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="exportMatchRAW-regionSelect">Platform</label>
-									<select class="form-control" id="exportMatchRAW-regionSelect">
-										<option>Asia</option>
-										<option>Europe</option>
-										<option>Japan</option>
-										<option>Kakao</option>
-										<option>Korea</option>
-										<option>North America</option>
-										<option>Oceania</option>
-										<option>Russia</option>
-										<option>South and Centeral America</option>
-										<option>South East Asia</option>
-										<option>Tournament</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="exportMatchRAW-id">PUBG MatchID</label>
-									<input type="text" class="form-control" id="exportMatchRAW-id">
-								</div>
-								<button id="exportMatchRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW Match Data</button>
-				    	</div>
-				    </div>
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Export Match Data</h3>
+			    	</div>
+			    	<div class="panel-body">
+							<div class="form-group">
+								<label for="exportMatchRAW-id">PUBG MatchID</label>
+								<input type="text" class="form-control" id="exportMatchRAW-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
+							</div>
+							<button id="exportMatchRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW Match Data</button>
+							<button id="exportMatchRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="exportMatchRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+
+				<!-- ==== Export User Data ==== -->
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Export User Data</h3>
+			    	</div>
+			    	<div class="panel-body">
+							<div class="form-group">
+								<label for="exportUserRAW-id">PUBG Username</label>
+								<input type="text" class="form-control" id="exportUserRAW-id" placeholder='Example: xSuperSeed'>
+							</div>
+							<button id="exportUserRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW User Data</button>
+							<button id="exportUserRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="exportUserRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+
+				<hr>
+				<div class="console-output">
+					<p>Console Output</p>
+					<code id="tourn-consoleout" class="tournament">
+
+					</code>
+				</div>
 			</div>
 		</main>
 

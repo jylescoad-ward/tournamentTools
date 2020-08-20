@@ -19,6 +19,7 @@
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "css-loader": "^4.2.1",
+    "fs": "0.0.1-security",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
@@ -26,8 +27,10 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "battlegrounds": "^1.5.2",
     "jquery": "^3.5.1",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "md5": "^2.3.0"
   }
 }
