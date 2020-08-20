@@ -1,7 +1,11 @@
 module.exports = async function(nameGiven) {
 	if (!PUBG_connectionWorking) return;
 	try {
-		return await PUBG_api.getPlayers({names: nameGiven});
+		const data = await PUBG_api.getPlayers({names: nameGiven})
+		data.forEach((p) => {
+			console.div(`[PUBG_API] [processUser] Processed User "${p.attributes.name}"`)
+		})
+		return data;
 	} catch(e) {
 		console.div(`[PUBG_API] [processUser.js] An Error Occurred, Check Console.`);
 		console.error(e);
