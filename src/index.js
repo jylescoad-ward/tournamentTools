@@ -1,10 +1,12 @@
 import _ from 'lodash';
 import $ from 'jquery';
 
-/* Import Custom CSS Styles */
-var styles = [];
-require(`./css/console.css`);
-styles.forEach(async (s) => { s.use(); })
+import "./customConsole.js";
 
+console.debug(`[DocPathName] ${document.location.pathname}`);
 
-console.log(`[DocPathName] ${document.location.pathname}`);
+console.div("[System] Ready!");
+
+setTimeout(function() {
+    console.div("[User] Fetching UserID of 'SeedVEVO'");
+},1500);
