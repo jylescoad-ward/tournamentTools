@@ -142,6 +142,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
+/***/ "./src/dropdown.js":
+/*!*************************!*\
+  !*** ./src/dropdown.js ***!
+  \*************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('click', '.panel div.clickable', function (e) {\n    var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this); //Heading\n    var $panel = $this.parent('.panel');\n    var $panel_body = $panel.children('.panel-body');\n    var $display = $panel_body.css('display');\n\n    if ($display == 'block') {\n        $panel_body.slideUp();\n    } else if($display == 'none') {\n        $panel_body.slideDown();\n    }\n});\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function(e){\n    var $classy = '.panel.autocollapse';\n\n    var $found = jquery__WEBPACK_IMPORTED_MODULE_0___default()($classy);\n    $found.find('.panel-body').hide();\n    $found.removeClass($classy);\n});\n\n\n//# sourceURL=webpack:///./src/dropdown.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -150,7 +162,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _customConsole_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customConsole.js */ \"./src/customConsole.js\");\n\r\n\r\n\r\n\r\n\r\nconsole.debug(`[DocPathName] ${document.location.pathname}`);\r\n\r\nconsole.div(\"[System] Ready!\");\r\n\r\nsetTimeout(function() {\r\n    console.div(\"[User] Fetching UserID of 'SeedVEVO'\");\r\n},1500);\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _customConsole_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customConsole.js */ \"./src/customConsole.js\");\n/* harmony import */ var _dropdown_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dropdown.js */ \"./src/dropdown.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nconsole.debug(`[DocPathName] ${document.location.pathname}`);\r\n\r\nconsole.div(\"[System] Ready!\");\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
