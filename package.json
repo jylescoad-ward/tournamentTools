@@ -1,6 +1,10 @@
 {
   "name": "tournament",
   "version": "0.0.1",
+  "build": {
+      "number": 2,
+      "date": "2020-08-20"
+  },
   "sideEffects": false,
   "main": "src/index.js",
   "scripts": {
