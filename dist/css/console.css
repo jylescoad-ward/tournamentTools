@@ -1,0 +1,21 @@
+div.console-output code.tournament{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3b3b3b;
+    border-radius: 1px;
+
+    min-width: 60px;
+    min-height: 21px;
+    width: max-content;
+    display:block;
+
+    background-color: #f5f5f5;
+}
+
+div.console-output code.tournament span{
+    display: inherit;
+}
+
+div.console-output p{
+    margin-bottom:0;
+}
