@@ -2,7 +2,7 @@
   "name": "tournament",
   "version": "0.0.1",
   "build": {
-    "number": 2,
+    "number": 4,
     "date": "2020-08-20"
   },
   "sideEffects": false,
