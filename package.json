@@ -2,14 +2,14 @@
   "name": "tournament",
   "version": "0.0.1",
   "build": {
-      "number": 2,
-      "date": "2020-08-20"
+    "number": 2,
+    "date": "2020-08-20"
   },
   "sideEffects": false,
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --development --progress",
+    "build": "clear && webpack --development --progress",
     "build-prod": "webpack --production --progress --no-cache"
   },
   "author": "Jyles Coad-Ward [jyles@dariox.club]",
