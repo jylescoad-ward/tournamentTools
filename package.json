@@ -1,6 +1,6 @@
 {
   "name": "tournamentTools",
-  "version": "0.0.1.1",
+  "version": "0.0.1dev",
   "build": {
     "number": 4,
     "date": "2020-08-21"
@@ -29,9 +29,11 @@
   "dependencies": {
     "axios": "^0.19.2",
     "battlegrounds": "^1.5.2",
+    "cookie": "^0.4.1",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "md5": "^2.3.0",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "sweetalert2": "^9.17.1"
   }
 }

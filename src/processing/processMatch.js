@@ -1,6 +1,5 @@
 module.exports = async function(matchID) {
 	if (!PUBG_connectionWorking) return;
-	console.log(matchID)
 
 	console.div("[PUBG_API] [processMatch] Checking MatchID");
 	const res = await PUBG_api.getMatch({ id: matchID })

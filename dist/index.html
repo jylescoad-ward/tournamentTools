@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="css/index.css" type="text/css" />
 	</head>
 	<body>
-<!-- Navbar -->
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 			<a class="navbar-brand" href="#">Tournament Tools</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,15 +24,12 @@
 			</div>
 		</nav>
 
+		<!-- ==== Content ==== -->
 		<main role="main" class="container">
-			<!-- actual dropdown stuff -->
+			<div id="alerts">
+			</div>
 			<div class="processing">
 				<h1>Processing</h1>
-				<!-- ==== Match Result ====
-				<div class="result">
-					<h3>Result</h3>
-				</div>-->
-
 				<!-- ==== Export Match Data ==== -->
 				<div class="panel panel-primary">
 			        <div class="panel-heading clickable">
@@ -72,6 +69,29 @@
 
 					</code>
 				</div>
+			</div>
+			<div class="settings">
+				<h3>Settings</h3>
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Settings</h3>
+			    	</div>
+			    	<div class="panel-body">
+						<div id="apiNotice">
+							<h3>IMPORTANT</h3>
+							<p>Your API Key has not been set, in order for this to work you must set your API key.<br>
+								To get this you must create an application on the <a href="http://developer.pubg.com/">Offical PUBG Developer</a> website.<br>
+								Once you have done that, set it by pasting it in the text box below and click the button below that, by doing this you agree for us to use your cookies to store you API Key, this is done so we can not see it in any way because all of the processing is done by your browser.
+							</p>
+						</div>
+						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
+						<div class="form-group">
+							<label for="setAPIKEY-input">Set PUBG API Key</label>
+							<input type="password" class="form-control" id="setAPIKEY-input">
+						</div>
+						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
+					</div>
+			    </div>
 			</div>
 		</main>
 

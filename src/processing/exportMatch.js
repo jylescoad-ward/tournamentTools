@@ -19,11 +19,7 @@ module.exports = function() {
 					$("#exportMatchRAW-download").show();
 					$("#exportMatchRAW-view").show();
 
-					var dsFN_o = {
-						"antiDupePrefix": randomString(16),
-						"matchTime": moment(result.attributes.createdAt).unix(),
-						"hash": md5("id-"+result.id+" t-"+moment(result.attributes.createdAt).unix()),
-					};
+					var dsFN_o = { "antiDupePrefix": randomString(16), "matchTime": moment(result.attributes.createdAt).unix(), "hash": md5("id-"+result.id+" t-"+moment(result.attributes.createdAt).unix()), };
 					var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}.json`;
 					console.div("[PUBG_API] [exportMatch] Match Ready to Download or View");
 					$("#exportMatchRAW-download").click(() => {
