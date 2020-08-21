@@ -1,5 +1,6 @@
 var $ = require("jquery");
 var md5 = require("md5");
+var moment = require("moment");
 
 module.exports = async function() {
 	if (!PUBG_connectionWorking) return;
@@ -16,11 +17,20 @@ module.exports = async function() {
 						console.div("[PUBG_API] [exportMatch] An error might have occurred, Check Console");
 					} else {
 						console.div("[PUBG_API] [exportMatch] Match Fetched Successfully");
+						$("#exportMatchRAW-download").show();
+						$("#exportMatchRAW-view").show();
+
+						//let matchTime = new Date(res.attributes.createdAt).getTime())/1000;
+						var dsFN_o = {
+							"antiDupePrefix": randomString(16),
+							"matchTime": moment(res.attributes.createdAt).unix(),
+							"hash": md5("id_"+res.id),
+						};
+						//var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}-${dsFN_o.hash}.json`
+						var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}.json`;
 						$("#exportMatchRAW-download").click(() => {
-							downloadString(`match-${md5(res.id)}.json`,JSON.stringify(res)).then(() => {
-								$("#exportMatchRAW-download").show();
-								$("#exportMatchRAW-view").show();
-							});
+							downloadString(downloadString_fileName,JSON.stringify(res));
+							console.div("[PUBG_API] [exportMatch] Downloaded Match "+res.id);
 						})
 					}
 				});
