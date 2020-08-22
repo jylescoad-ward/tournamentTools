@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Getting Started</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/index.css" type="text/css" />
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">Tournament Tools</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- ==== Content ==== -->
+		<main role="main" class="container">
+			<div id="alerts">
+			</div>
+			<div class="processing">
+				<h1>Processing</h1>
+				<!-- ==== Export Match Data ==== -->
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Process Match</h3>
+			    	</div>
+			    	<div class="panel-body">
+							<div class="form-group">
+								<label for="exportMatchRAW-id">PUBG MatchID</label>
+								<input type="text" class="form-control" id="exportMatchRAW-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
+							</div>
+							<button id="exportMatchRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW Match Data</button>
+							<button id="exportMatchRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="exportMatchRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+
+				<!-- ==== Export User Data ==== -->
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Process User</h3>
+			    	</div>
+			    	<div class="panel-body">
+							<div class="form-group">
+								<label for="exportUserRAW-id">PUBG Username</label>
+								<input type="text" class="form-control" id="exportUserRAW-id" placeholder='Example: xSuperSeed'>
+							</div>
+							<button id="exportUserRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW User Data</button>
+							<button id="exportUserRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="exportUserRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+
+				<hr>
+				<div class="console-output">
+					<p>Console Output</p>
+					<code id="tourn-consoleout" class="tournament">
+
+					</code>
+				</div>
+			</div>
+			<div class="settings">
+				<h3>Settings</h3>
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Settings</h3>
+			    	</div>
+			    	<div class="panel-body">
+						<div id="apiNotice">
+							<h3>IMPORTANT</h3>
+							<p>Your API Key has not been set, in order for this to work you must set your API key.<br>
+								To get this you must create an application on the <a href="http://developer.pubg.com/">Offical PUBG Developer</a> website.<br>
+								Once you have done that, set it by pasting it in the text box below and click the button below that, by doing this you agree for us to use your cookies to store you API Key, this is done so we can not see it in any way because all of the processing is done by your browser.
+							</p>
+						</div>
+						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
+						<div class="form-group">
+							<label for="setAPIKEY-input">Set PUBG API Key</label>
+							<input type="password" class="form-control" id="setAPIKEY-input">
+						</div>
+						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
+					</div>
+			    </div>
+			</div>
+		</main>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="tournament.bundle.js"></script>
+	</body>
+</html>
