@@ -16,9 +16,12 @@ async function validateKey(butClik) {
 		console.log("[PUBG_API] => [ConnectionTestResult]",res[0]);
 		if (res[0].id !== undefined){
 			setCookie("keyValid","true");
-			setCookie("apiKey",$("#setAPIKEY-input").val());
+			if (butClik) {
+				setCookie("apiKey",$("#setAPIKEY-input").val());
+			}
 	    	console.div("[PUBG_API] Connected to PUBG Servers.");
 			global.PUBG_connectionWorking = true;
+			require("./processing/init.js")
 			return "valid";
 		} else {
 			setCookie("keyValid","false");

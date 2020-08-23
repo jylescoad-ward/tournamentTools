@@ -1,26 +1,29 @@
 var $ = require("jquery");
 var md5 = require("md5");
+var moment = require("moment");
 
-module.exports = async function() {
+module.exports = function() {
 	if (!PUBG_connectionWorking) return;
 
-	$("#exportUserRAW-submit").click(() => {
+	$("#exportUserRAW-submit").click(async () => {
 		try {
-			console.div("[PUBG_API] [exportUser] Checking Fields");
-			if ($("#exportUserRAW-id").val().length === 0) {
-				console.div("[PUBG_API] [exportUser] No UserID submitted");
+			var result = await require("./processUser.js")($("#exportUserRAW-id").val());
+			if (result === true) {
+				console.div("[PUBG_API] [exportMatch] An Error Occured.");
+				return;
 			} else {
-				PUBG_api.getPlayers({ names: [$("#exportUserRAW-id").val()] }).then((res) => {
-					console.log(res);
-					if (res[0].id === undefined) {
-						console.div("[PUBG_API] [exportUser] An error might have occurred, Check Console");
-					} else {
-						console.div("[PUBG_API] [exportUser] User Fetched Successfully");
-						$("#exportUserRAW-download").click(() => {
-							downloadString(`user-${md5(res.id)}.json`,JSON.stringify(res[0]));
-						})
-					}
-				});
+				$("#exportUserRAW-download").show();
+				$("#exportUserRAW-view").show();
+
+				var downloadString_fileName = `user-${result[0].attributes.name}-${moment(new Date()).unix()}.json`;
+				console.div("[PUBG_API] [exportUser] User Ready to Download");
+				$("#exportUserRAW-download").click(() => {
+					var protectedFile = result[0];
+					delete(protectedFile._api);
+					protectedFile = JSON.stringify(protectedFile,null,"\t");
+					downloadString(downloadString_fileName,protectedFile);
+					console.div("[PUBG_API] [exportUser] Downloaded User "+result[0].attributes.name);
+				})
 			}
 		} catch(e) {
 			console.div("[PUBG_API] [exportUser] An Error Occurred, Check Console");

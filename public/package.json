@@ -1,9 +1,9 @@
 {
   "name": "tournamentTools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "build": {
-    "number": 4,
-    "date": "2020-08-21"
+    "number": 12,
+    "date": "2020-08-23"
   },
   "sideEffects": false,
   "main": "src/index.js",

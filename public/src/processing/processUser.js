@@ -7,7 +7,7 @@ module.exports = async function(nameGiven) {
 		})
 		return data;
 	} catch(e) {
-		console.div(`[PUBG_API] [processUser.js] An Error Occurred, Check Console.`);
+		console.div(`[PUBG_API] [processUser] An Error Occurred, Check Console.`);
 		console.error(e);
 	}
 }
