@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Tournament Tools - View Match</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/index.css" type="text/css" />
+		<style>
+.table-plain,
+.table-plain tbody tr,
+.table-plain tbody tr:hover,
+.table-plain tbody td {
+	background-color:transparent;
+	border:none;
+}
+
+.plain{
+	border:none;
+}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">Tournament Tools</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- ==== Content ==== -->
+		<main role="main" class="container">
+			<div id="alerts">
+			</div>
+			<div class="processing">
+				<h1>View Match</h1>
+				<!-- ==== View Match ==== -->
+
+<table class="table table-responsive table-sm">
+	<thead>
+		<tr>
+			<th scope="col">Placement</th>
+			<th scope="col">Team</th>
+			<th scope="col">Kills</th>
+			<th scope="col">Deaths</th>
+			<th scope="col">Score</th>
+			<th scope="col">Player Metadata</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>team_shroud</td>
+			<td>sum of kills</td>
+			<td>sum of deaths</td>
+			<td>sum of score</td>
+		</tr>
+		<tr>
+			<td class="plain"></td>
+			<td>xSuperSeed</td>
+			<td>1</td>
+			<td>0</td>
+			<td>2</td>
+			<td>
+				<table>
+					<tr>
+						<th>thing 1</th>
+						<th>thing 1</th>
+						<th>thing 1</th>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="plain"></td>
+			<td>cummer</td>
+			<td>1</td>
+			<td>0</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>team_shroud</td>
+			<td>sum of kills</td>
+			<td>sum of deaths</td>
+			<td>sum of score</td>
+		</tr>
+		<tr>
+			<td class="plain"></td>
+			<td>shroud</td>
+			<td>1</td>
+			<td>0</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table>
+
+				<hr>
+				<div class="console-output">
+					<p>Console Output</p>
+					<code id="tourn-consoleout" class="tournament">
+						<span>Console Output Would Go Here</span>
+					</code>
+				</div>
+			</div>
+		</main>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="tournament.view.bundle.js"></script>
+	</body>
+</html>

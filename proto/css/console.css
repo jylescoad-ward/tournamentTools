@@ -1,0 +1,22 @@
+code{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3b3b3b;
+    border-radius: 1px;
+
+    min-width: 60px;
+    min-height: 23px;
+	max-height: 600px;
+    width: max-content;
+    display:block;
+
+    background-color: #f5f5f5;
+}
+
+code span{
+    display: inherit;
+}
+
+div.console-output p{
+    margin-bottom:0;
+}

@@ -1,0 +1,13 @@
+/*table,
+table *{
+border: 1px solid black;
+}*/
+
+.playerspec{
+	/*position:relative;
+	*/
+}
+td.blank {
+	background-color:transparent;
+	border: 1px solid Transparent!important;
+}
