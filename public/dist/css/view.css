@@ -1,0 +1,19 @@
+/*table,
+table *{
+border: 1px solid black;
+}*/
+
+th.playerspec{
+	border: 1px solid transparent!important;
+}
+td.blank {
+	background-color:transparent;
+	border: 1px solid Transparent!important;
+}
+
+tr.team,tr.team *{
+	border-top: 2px solid black;
+}
+tr.team td.filler{
+	width: auto;
+}
