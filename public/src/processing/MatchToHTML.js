@@ -36,33 +36,33 @@ function filterArray(test_array) {
 
 function parseMatch(d) {
 	//d = JSON.parse(d);
-	
+
 	var rosterCompiled = [];
-	
+
 	d.rosters.forEach((d) => {
 		var teamData = d.attributes;
 		var teamPlayers = [];
-		
-		
+
+
 		d.participants.forEach((p) => {
 			teamPlayers[p.attributes.stats.killPlace] = p;
 		})
-		
+
 		var returnValue = {
 			metadata: teamData,
 			players: teamPlayers.filter((obj)=>obj),
 		}
-		
+
 		rosterCompiled[d.attributes.stats.rank] = returnValue;
 	})
-	
+
 	var finalResult = {
 		metadata: d.attributes,
 		teams: rosterCompiled.filter((obj) => obj),
 	}
-	
+
 	return finalResult;
-	
+
 	/*fs.writeFile("rosterCompiled.json",JSON.stringify(rosterCompiled.filter((obj)=>obj),null,"\t"), (e)=>{
 		if (e) return console.log(e);
 		console.log("done!")
@@ -72,7 +72,7 @@ function parseMatch(d) {
 async function gimmieMatch(d) {
 //fs.readFile("test.json", 'utf8',async (e,d)=>{
 	const parsedMatch = await parseMatch(d);
-	
+
 	var metadataTable = `
 <table class="table table-responsive table-sm">
 	<tr>
@@ -92,8 +92,8 @@ async function gimmieMatch(d) {
 	</tr>
 </table>
 	`;
-	
-	
+
+
 	var innerTableRoster=[];
 	parsedMatch.teams.forEach(async(t)=>{
 		var players="";
@@ -119,11 +119,11 @@ async function gimmieMatch(d) {
 			</tr>
 			`;
 		});
-		
+
 		totalScore = (totalKills*2)+totalAssists;
-		
+
 		var teamReturn = `
-		
+
 		<tr class="team">
 			<th scope="row">${t.metadata.stats.rank}</th>
 			<td>team_${t.players[0].attributes.stats.name}</td>
@@ -141,12 +141,12 @@ async function gimmieMatch(d) {
 		`;
 		innerTableRoster[t.metadata.stats.rank - 1] = teamReturn.replace(";","");
 	})
-	
+
 	var innerRosterComplete=" ";
 	innerTableRoster.forEach((r)=>{
 		innerRosterComplete+=r;
 	})
-	
+
 	var matchRoster = `
 	<table class="table table-sm">
 		<thead>
@@ -176,10 +176,8 @@ async function gimmieMatch(d) {
 		</tbody>
 	</table>
 	`;
-	
+
 	var finalHTMLOut = `
-	<link href="style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<div clas="match metadata">
 		${metadataTable}
 	</div>
@@ -187,18 +185,15 @@ async function gimmieMatch(d) {
 	<div class="match roster">
 		${matchRoster}
 	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	`;
-	
+
 	return finalHTMLOut;
 	/*
 	fs.writeFile("out.html",finalHTMLOut,(e)=>{
 		if (e) return console.log(e);
 		console.log("written website file");
 	})
-	
+
 	fs.writeFile("parsedMatch.json",JSON.stringify(parsedMatch,null,"\t"), (e)=>{
 		if (e) return console.log(e);
 		console.log("done!")
@@ -209,14 +204,9 @@ var $ = require("jquery");
 module.exports = function(data) {
 	$("#exportMatchRAW-view").click(async () => {
 		const result = await gimmieMatch(data);
-		
+
 		$("#view_data_currentlyViewing").html(`Match: ${$("#exportMatchRAW-id").val()}`)
 		$("#viewDataField").html(result);
 		return;
 	});
 }
-
-
-
-
-
