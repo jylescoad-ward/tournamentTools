@@ -53,6 +53,8 @@ function parseMatch(d) {
 			players: teamPlayers.filter((obj)=>obj),
 		}
 
+		returnValue.metadata.id = d.id;
+
 		rosterCompiled[d.attributes.stats.rank] = returnValue;
 	})
 
@@ -201,12 +203,28 @@ async function gimmieMatch(d) {
 }
 
 var $ = require("jquery");
-module.exports = function(data) {
-	$("#exportMatchRAW-view").click(async () => {
-		const result = await gimmieMatch(data);
+async function setThing(data){
+	$("#view_data_currentlyViewing_short").html("Not Viewing Anything");
+	console.div("[MatchToHTML] Processing Request...");
+	$("#view_data_currentlyViewing_short").html("Processing Request");
+	$("#viewDataField").html("<h1>Processing a request. Please Wait</h1>");
+	const result = await gimmieMatch(data);
+	if (data.metadata === undefined){
+		$("#view_data_currentlyViewing").html(`Match: ${data.id}`)
+	} else {
+		$("#view_data_currentlyViewing").html(`Match: ${data.metadata.id}`)
+	}
 
-		$("#view_data_currentlyViewing").html(`Match: ${$("#exportMatchRAW-id").val()}`)
-		$("#viewDataField").html(result);
-		return;
+	$("#viewDataField").html(result);
+		console.div("[MatchToHTML] Processed Request.");
+		$("#view_data_currentlyViewing_short").html("Ready to View a Match");
+}
+module.exports = function(data) {
+	$("#processMatch-view").click(async () => {
+		setThing(data)
 	});
+}
+
+module.exports.force = function(data){
+	setThing(data);
 }
