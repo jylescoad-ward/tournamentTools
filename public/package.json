@@ -2,9 +2,9 @@
 	"name": "tournamentTools",
 	"version": "0.0.3",
 	"build": {
-		"number": 25,
+		"number": 28,
 		"date": "2020_7_24",
-		"timestamp": 1598260923
+		"timestamp": 1598263195
 	},
 	"sideEffects": false,
 	"main": "src/index.js",
