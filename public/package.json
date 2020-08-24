@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "build": {
     "number": 12,
-    "date": "2020-08-23"
+    "date": "2020-08-24"
   },
   "sideEffects": false,
   "main": "src/index.js",
@@ -28,6 +28,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "battlegrounds": "^1.5.2",
+    "battlegrounds-revisited": "^1.5.3",
     "cookie": "^0.4.1",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
