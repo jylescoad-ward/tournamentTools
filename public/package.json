@@ -2,8 +2,9 @@
 	"name": "tournamentTools",
 	"version": "0.0.3",
 	"build": {
-		"number": 17,
-		"date": "2020_7_24"
+		"number": 25,
+		"date": "2020_7_24",
+		"timestamp": 1598260923
 	},
 	"sideEffects": false,
 	"main": "src/index.js",
@@ -12,7 +13,7 @@
 		"build-prod": "node incrementPackage.js && webpack --production --progress --no-cache"
 	},
 	"author": "Jyles Coad-Ward [jyles@dariox.club]",
-	"maintainers": [
+	"contributors": [
 		"Jyles Coad-Ward [jyles@dariox.club]"
 	],
 	"license": "GPL-3.0-or-later",
