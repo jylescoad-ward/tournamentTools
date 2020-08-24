@@ -14,27 +14,30 @@
 			</button>
 		</nav>
 
-		<!-- ===== Content ===== -->
+		<!-- = Content = -->
 		<main role="main" class="container">
-			<div id="alerts">
-			</div>
+			<div id="alerts"> </div>
 
-			<!-- ====== Processing =====-->
+			<!-- ====== Processing ====== -->
 			<div class="processing requireAPIKey">
 				<h2>Processing</h2>
-				<!-- ==== Export Match Data ==== -->
+				<!-- ==== Process Match ==== -->
 				<div class="panel panel-primary">
 			        <div class="panel-heading clickable">
 			    		<h3 class="panel-title">Process Match</h3>
 			    	</div>
 			    	<div class="panel-body startClosed">
-							<div class="form-group">
-								<label for="exportMatchRAW-id">PUBG MatchID</label>
-								<input type="text" class="form-control" id="exportMatchRAW-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
+							<div class="form-group" id="PUBGMatchIDGroup">
+								<label for="processMatch-id">PUBG MatchID</label>
+								<input type="text" class="form-control" id="processMatch-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
 							</div>
-							<button id="exportMatchRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW Match Data</button>
-							<button id="exportMatchRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
-							<button id="exportMatchRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+							<div class="form-group" id="PUBGUploadMatchGroup">
+								<label for="uploadPastMatch">Upload Past Match</label><br>
+								<input type="file" id="uploadPastMatch_File" accept="application/json" name="uploadedPastMatch">
+							</div>
+							<button id="processMatch-submit" type="submit" class="btn btn-primary mb-2">Process Match</button>
+							<button id="processMatch-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="processMatch-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
 					</div>
 			    </div>
 
@@ -55,7 +58,7 @@
 			    </div>
 			</div>
 
-			<!-- ====== View Data =====-->
+			<!-- ====== View Data ====== -->
 			<div class="view_data requireAPIKey">
 				<hr>
 				<div class="panel panel-primary">
@@ -72,7 +75,7 @@
 				</div>
 			</div>
 
-			<!-- ====== Settings ===== -->
+			<!-- ====== Settings ====== -->
 			<div class="settings">
 				<hr>
 				<h3>Settings</h3>
@@ -100,7 +103,7 @@
 			    </div>
 			</div>
 
-			<!-- ====== Console and Others ===== -->
+			<!-- ====== Console and Others ====== -->
 			<div class="console forceOpen">
 				<hr>
 				<div class="panel panel-primary">
