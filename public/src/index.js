@@ -5,6 +5,7 @@ import "./misc.js";
 import "./keyCheck.js";
 import "./customConsole.js";
 import "./dropdown.js";
+import "./buildInfo.js"
 
 if (require("./../webpack.config.js").mode === "production") {
 	setTimeout(function() {
