@@ -7,6 +7,8 @@ import "./customConsole.js";
 import "./dropdown.js";
 import "./buildInfo.js"
 
+global.$ = require("jquery")
+
 if (require("./../webpack.config.js").mode === "production") {
 	setTimeout(function() {
 		debugger;
