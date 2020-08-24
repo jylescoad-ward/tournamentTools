@@ -5,7 +5,7 @@ var moment = require("moment");
 module.exports = function() {
 	if (!PUBG_connectionWorking) return;
 
-	$("#exportMatchRAW-submit").click(async () => {
+	$("#processMatch-submit").click(async () => {
 		try {
 			$("#processMatch-download").hide();
 			$("#processMatch-view").hide();
