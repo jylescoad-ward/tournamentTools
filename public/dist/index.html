@@ -12,16 +12,6 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-				</ul>
-			</div>
 		</nav>
 
 		<!-- ==== Content ==== -->
@@ -87,15 +77,17 @@
 			    	<div class="panel-body">
 						<div id="apiNotice">
 							<h3>IMPORTANT</h3>
-							<p>Your API Key has not been set, in order for this to work you must set your API key.<br>
-								To get this you must create an application on the <a href="http://developer.pubg.com/">Offical PUBG Developer</a> website.<br>
+							<p>If you only see this and settings then that means your API Key has not been set or it is invalid, in order for this to work <br>
+								you must set your API key.<br>
+								<br>
+								To get your API Key you must create an application on the <a href="http://developer.pubg.com/">Offical PUBG Developer</a> website.<br>
 								Once you have done that, set it by pasting it in the text box below and click the button below that, by doing this you agree for us to use your cookies to store you API Key, this is done so we can not see it in any way because all of the processing is done by your browser.
 							</p>
 						</div>
 						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
 						<div class="form-group">
 							<label for="setAPIKEY-input">Set PUBG API Key</label>
-							<input type="text" class="form-control key" id="setAPIKEY-input">
+							<input type="text" class="form-control" id="setAPIKEY-input">
 						</div>
 						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
 					</div>
@@ -114,9 +106,31 @@
 
 							</code>
 						</div>
+						<hr>
+						<div class="buildInfo">
+							<table class="table table-sm table-responsive">
+								<tr>
+									<th>Build Number</th>
+									<td id="buildInfo-no"></td>
+								</tr>
+								<tr>
+									<th>Build Date and Time</th>
+									<td id="buildInfo-dateandtime"></td>
+								</tr>
+								<tr>
+									<th>Package Name</th>
+									<td id="buildInfo-pkg_name"></td>
+								</tr>
+								<tr>
+									<th>Contributors</th>
+									<td id="buildInfo-pkg_contrib"></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="bottomOfPage"></div>
 		</main>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
