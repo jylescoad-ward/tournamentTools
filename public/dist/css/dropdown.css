@@ -41,6 +41,14 @@
     border-color: #428bca;
 }
 
-.panel .panel-body {
+.startClosed{
     display: none;
+}
+
+.forceOpen{
+	display:contents;
+}
+
+.requireAPIKey{
+	display:none;
 }
