@@ -34,6 +34,7 @@ async function validateKey(butClik) {
 			global.PUBG_connectionWorking = true;
 			$("#settings_currentAPIKEY").html(getCookie("apiKey"));
 			require("./processing/init.js");
+			$(".requireAPIKey").fadeIn("fast");
 			$("#loadingOverlay").fadeOut("fast");
 			return "valid";
 		} else {
@@ -65,7 +66,6 @@ function checkKey(arg) {
 				$("#keyCheckAlert").html(content);
 				break;
 			case "valid":
-				$(".processing").fadeIn("fast");
 				$("#keyCheckAlert").fadeOut("fast");
 				$("#keyCheckAlert").html(" ")
 				require("./processing/init.js");
