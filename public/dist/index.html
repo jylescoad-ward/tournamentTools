@@ -61,21 +61,20 @@
 							<button id="exportUserRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
 					</div>
 			    </div>
-
-				<hr>
-				<div class="console-output">
-					<p>Console Output</p>
-					<code id="tourn-consoleout" class="tournament">
-
-					</code>
-				</div>
 			</div>
 			<div class="view_data">
 				<hr>
-				<h2>View Data</h2>
-				<p>Currently Viewing <code id="view_data_currentlyViewing">Nothing</code>
-				<div id="viewDataField">
-				
+				<div class="panel panel-primary">
+							<div class="panel-heading clickable">
+								<h3 class="panel-title">View Data</h3>
+								<h4 class="panel-subtitle" id="view_data_currentlyViewing_short">Not Viewing Anything</h4>
+							</div>
+							<div class="panel-body">
+								<h3>Currently Viewing <code id="view_data_currentlyViewing"></code>
+								<div id="viewDataField">
+
+								</div>
+							</div>
 				</div>
 			</div>
 			<div class="settings">
@@ -83,7 +82,7 @@
 				<h3>Settings</h3>
 				<div class="panel panel-primary">
 			        <div class="panel-heading clickable">
-			    		<h3 class="panel-title">Settings</h3>
+			    		<h4 class="panel-title">Settings</h4>
 			    	</div>
 			    	<div class="panel-body">
 						<div id="apiNotice">
@@ -96,11 +95,27 @@
 						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
 						<div class="form-group">
 							<label for="setAPIKEY-input">Set PUBG API Key</label>
-							<input type="password" class="form-control" id="setAPIKEY-input">
+							<input type="text" class="form-control key" id="setAPIKEY-input">
 						</div>
 						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
 					</div>
 			    </div>
+			</div>
+			<div class="console">
+				<hr>
+				<div class="panel panel-primary">
+					<div class="panel-heading clickable">
+						<h3 class="panel-title">Console Ouput</h3>
+					</div>
+					<div class="panel-body">
+						<div class="console-output">
+							<p>Console Output</p>
+							<code id="tourn-consoleout" class="tournament">
+
+							</code>
+						</div>
+					</div>
+				</div>
 			</div>
 		</main>
 

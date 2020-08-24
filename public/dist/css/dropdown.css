@@ -20,6 +20,17 @@
     margin-top: 0;
     margin-bottom: 0;
 }
+.panel-subtitle{
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.panel-title,.panel-subtitle{
+    display:inline;
+    position:relative;
+    bottom:3px;
+}
+
 .panel-body {
     padding: 15px;
     border-width: 1px;
