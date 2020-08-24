@@ -32,6 +32,7 @@ async function validateKey(butClik) {
 			}
 	    	console.div("[PUBG_API] Connected to PUBG Servers.");
 			global.PUBG_connectionWorking = true;
+			$("#settings_currentAPIKEY").html(getCookie("apiKey"));
 			require("./processing/init.js");
 			$("#loadingOverlay").fadeOut("fast");
 			return "valid";
