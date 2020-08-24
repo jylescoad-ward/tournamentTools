@@ -7,13 +7,16 @@ module.exports = function() {
 
 	$("#exportMatchRAW-submit").click(async () => {
 		try {
-			console.div("[PUBG_API] [exportMatch] Checking Fields");
+			$("#exportMatchRAW-download").hide();
+			$("#exportMatchRAW-view").hide();
+			$("#view_data_currentlyViewing_short").html("Not Viewing Anything");
+			console.div("[exportMatch] Checking Fields");
 			if ($("#exportMatchRAW-id").val().length !== 36) {
 				console.div("[PUBG_API] [exportMatch] Invalid MatchID");
 			} else {
 				var result = await require("./processMatch.js")($("#exportMatchRAW-id").val());
 				if (result === true) {
-					console.div("[PUBG_API] [exportMatch] An Error Occured.");
+					console.div("[PUBG_API] [exportMatch] An Error Occured. You should check the console.");
 					return;
 				} else {
 					$("#exportMatchRAW-download").show();
@@ -21,11 +24,14 @@ module.exports = function() {
 
 					var dsFN_o = { "antiDupePrefix": randomString(16), "matchTime": moment(result.attributes.createdAt).unix(), "hash": md5("id-"+result.id+" t-"+moment(result.attributes.createdAt).unix()), };
 					var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}.json`;
-					console.div("[PUBG_API] [exportMatch] Match Ready to Download or View");
+					console.div("[exportMatch] Match Ready to Download or View");
+					$("#exportMatchRAW-view").click(()=>{
+						$("#view_data_currentlyViewing_short").html("Ready to View a Match");
+					})
 					require("./MatchToHTML.js")(result)
 					$("#exportMatchRAW-download").click(() => {
 						downloadString(downloadString_fileName,JSON.stringify(result,null,"\t"));
-						console.div("[PUBG_API] [exportMatch] Downloaded Match "+result.id);
+						console.div("[exportMatch] Downloaded Match "+result.id);
 					})
 				}
 			}
