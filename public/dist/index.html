@@ -14,18 +14,20 @@
 			</button>
 		</nav>
 
-		<!-- ==== Content ==== -->
+		<!-- ===== Content ===== -->
 		<main role="main" class="container">
 			<div id="alerts">
 			</div>
-			<div class="processing">
+
+			<!-- ====== Processing =====-->
+			<div class="processing requireAPIKey">
 				<h2>Processing</h2>
 				<!-- ==== Export Match Data ==== -->
 				<div class="panel panel-primary">
 			        <div class="panel-heading clickable">
 			    		<h3 class="panel-title">Process Match</h3>
 			    	</div>
-			    	<div class="panel-body">
+			    	<div class="panel-body startClosed">
 							<div class="form-group">
 								<label for="exportMatchRAW-id">PUBG MatchID</label>
 								<input type="text" class="form-control" id="exportMatchRAW-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
@@ -41,7 +43,7 @@
 			        <div class="panel-heading clickable">
 			    		<h3 class="panel-title">Process User</h3>
 			    	</div>
-			    	<div class="panel-body">
+			    	<div class="panel-body startClosed">
 							<div class="form-group">
 								<label for="exportUserRAW-id">PUBG Username</label>
 								<input type="text" class="form-control" id="exportUserRAW-id" placeholder='Example: xSuperSeed'>
@@ -52,21 +54,25 @@
 					</div>
 			    </div>
 			</div>
-			<div class="view_data">
+
+			<!-- ====== View Data =====-->
+			<div class="view_data requireAPIKey">
 				<hr>
 				<div class="panel panel-primary">
-							<div class="panel-heading clickable">
-								<h3 class="panel-title">View Data</h3>
-								<h4 class="panel-subtitle" id="view_data_currentlyViewing_short">Not Viewing Anything</h4>
-							</div>
-							<div class="panel-body">
-								<h3>Currently Viewing <code id="view_data_currentlyViewing"></code></h3>
-								<div id="viewDataField">
+					<div class="panel-heading clickable">
+						<h3 class="panel-title">View Data</h3>
+						<h4 class="panel-subtitle" id="view_data_currentlyViewing_short">Not Viewing Anything</h4>
+					</div>
+					<div class="panel-body startClosed">
+						<h3>Currently Viewing <code id="view_data_currentlyViewing"></code></h3>
+						<div id="viewDataField">
 
-								</div>
-							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<!-- ====== Settings ===== -->
 			<div class="settings">
 				<hr>
 				<h3>Settings</h3>
@@ -74,7 +80,7 @@
 			        <div class="panel-heading clickable">
 			    		<h4 class="panel-title">Settings</h4>
 			    	</div>
-			    	<div class="panel-body">
+			    	<div class="panel-body startClosed">
 						<div id="apiNotice">
 							<h3>IMPORTANT</h3>
 							<p>If you only see this and settings then that means your API Key has not been set or it is invalid, in order for this to work <br>
@@ -93,7 +99,9 @@
 					</div>
 			    </div>
 			</div>
-			<div class="console">
+
+			<!-- ====== Console and Others ===== -->
+			<div class="console forceOpen">
 				<hr>
 				<div class="panel panel-primary">
 					<div class="panel-heading clickable">
@@ -101,7 +109,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="console-output">
-							<p>Console Output</p>
+							<h3>Console Output</h3>
 							<code id="tourn-consoleout" class="tournament">
 
 							</code>
@@ -131,11 +139,12 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- == Other Shit == -->
 			<div class="bottomOfPage"></div>
 		</main>
 
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<!-- === Javascript Libraries === -->
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<script src="tournament.bundle.js"></script>
 	</body>
