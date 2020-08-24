@@ -1,8 +1,8 @@
 {
   "name": "tournamentTools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "build": {
-    "number": 12,
+    "number": 13,
     "date": "2020-08-24"
   },
   "sideEffects": false,
