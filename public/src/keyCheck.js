@@ -1,31 +1,45 @@
 import $ from "jquery";
 import pubgMod from "battlegrounds-revisited";
-//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjN2I4ODYwMC0zMmRkLTAxMzgtMmU3MC02MzE5NDU3ZGU0YzUiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTgxODUyNjgxLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6Imp5bGVzY29hZHdhcmQtIn0.5mJeV8fZiZ_8MEdWK57l4JmlNWMaz2fIDnJVHAR7HFE
+
 async function validateKey(butClik) {
+
 	// If the button was not clicked and the api cookie does not exist
 	if (!butClik && getCookie("apiKey").length === 0) {
 		setCookie("keyValid","false");
 		return 'noset';
 	} else {
+		//token to check is fetched from the browsrs cookies.
 		var token = getCookie("apiKey");
 		if (butClik) {
 			token = $("#setAPIKEY-input").val()
 		}
+
+		//Create PUBG API Instance and get request to check
+		//		if the key is valid by retriving my usernames
+		//		info.
 		var pubg = new pubgMod(token);
 		const res = await pubg.getPlayers({names: ['xSuperSeed']})
+
+		//Print to console result (will print even if it is a fail)
 		console.log("[PUBG_API] => [ConnectionTestResult]",res[0]);
 		if (res[0].id !== undefined){
+			//Print to console div and developer console that
+			//		the key is valid and working.
+			console.div("[keyCheck] Key Validated.")
 			setCookie("keyValid","true");
 			if (butClik) {
 				setCookie("apiKey",$("#setAPIKEY-input").val());
 			}
 	    	console.div("[PUBG_API] Connected to PUBG Servers.");
 			global.PUBG_connectionWorking = true;
-			require("./processing/init.js")
+			require("./processing/init.js");
+			$("#loadingOverlay").fadeOut("fast");
 			return "valid";
 		} else {
+			console.div("[keyCheck] Key Invalid")
 			setCookie("keyValid","false");
 			global.PUBG_connectionWorking = false;
+			$("#loadingOverlay").fadeOut("fast");
 			return "invalid";
 		}
 	}
@@ -33,27 +47,26 @@ async function validateKey(butClik) {
 
 function checkKey(arg) {
 	validateKey(arg).then((r) => {
-		console.log("[keyCheck] Checking API Key...");
+		console.div("[keyCheck] Checking API Key...");
 		if (!$("#keyCheckAlert").length) {
 			$("#alerts").append(`<div id="keyCheckAlert"></div>`);
 		}
-		console.log(`[keyCheck] Key is ${r}`)
+		console.div(`[keyCheck] Key is ${r}`)
 		switch(r) {
 			case "noset":
 			case "invalid":
-				console.log(`[keyCheck] Key is ${r}`)
 				var content = `
 				<div id="keyCheckAlert">
 					<div class="alert alert-danger" role="alert">
-						API Key is invalid or not set.
+						API Key is invalid or does not exist.
 					</div>
 				</div>`;
 				$("#keyCheckAlert").html(content);
 				break;
 			case "valid":
-				console.log(`[keyCheck] Key is ${r}`)
-				$("#keyCheckAlert").remove()
 				$(".processing").fadeIn("fast");
+				$("#keyCheckAlert").fadeOut("fast");
+				$("#keyCheckAlert").html(" ")
 				require("./processing/init.js");
 				break;
 			default:
