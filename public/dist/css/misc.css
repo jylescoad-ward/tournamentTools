@@ -9,3 +9,10 @@ input.key {
   font-family: 'password';
   width: 100px; height: 16px;
 }
+
+#settings_currentAPIKEY{
+	max-width: 60%;
+}
+.bottomOfPage{
+	padding-bottom: 200px;
+}
