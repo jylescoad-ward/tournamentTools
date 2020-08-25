@@ -30,9 +30,21 @@ async function validateKey(butClik) {
 			if (butClik) {
 				setCookie("apiKey",$("#setAPIKEY-input").val());
 			}
+
+			//Tell the user that they connected to the PUBG_API
+			//		without any errors (yet) and set a variable
+			//		which will help "kickstart" all of the functions.
 	    	console.div("[PUBG_API] Connected to PUBG Servers.");
 			global.PUBG_connectionWorking = true;
+
+			//Set misc things for the user
 			$("#settings_currentAPIKEY").html(getCookie("apiKey"));
+
+			//Start API Processors and show the elements that
+			//		require the PUBG api to function. (elements
+			//		with the requireAPIKey class). This will also
+			//		hide the loading overlay (might remove it
+			//		later in development).
 			require("./processing/init.js");
 			$(".requireAPIKey").fadeIn("fast");
 			$("#loadingOverlay").fadeOut("fast");
