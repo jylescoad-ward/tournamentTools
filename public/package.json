@@ -2,9 +2,9 @@
 	"name": "tournamentTools",
 	"version": "0.0.4",
 	"build": {
-		"number": 43,
-		"date": "2020_7_24",
-		"timestamp": 1598268975
+		"number": 47,
+		"date": "2020_7_25",
+		"timestamp": 1598329773
 	},
 	"sideEffects": false,
 	"main": "src/index.js",
@@ -28,8 +28,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
-		"battlegrounds": "^1.5.2",
-		"battlegrounds-revisited": "^1.5.3",
+		"battlegrounds-revisited": "^1.5.4",
 		"cookie": "^0.4.1",
 		"jquery": "^3.5.1",
 		"lodash": "^4.17.20",
