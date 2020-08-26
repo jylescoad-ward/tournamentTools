@@ -48,12 +48,16 @@
 			    	</div>
 			    	<div class="panel-body startClosed">
 							<div class="form-group">
-								<label for="exportUserRAW-id">PUBG Username</label>
-								<input type="text" class="form-control" id="exportUserRAW-id" placeholder='Example: xSuperSeed'>
+								<label for="processUser-id">PUBG Username</label>
+								<input type="text" class="form-control" id="processUser-id" placeholder='Example: xSuperSeed'>
 							</div>
-							<button id="exportUserRAW-submit" type="submit" class="btn btn-primary mb-2">Get RAW User Data</button>
-							<button id="exportUserRAW-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
-							<button id="exportUserRAW-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+							<div class="form-group" id="PUBGUploadUserGroup">
+								<label for="uploadPastUser">Upload Past Match</label><br>
+								<input type="file" id="uploadPastUser_file" accept="application/json" name="uploadedPastMatch">
+							</div>
+							<button id="processUser-submit" type="submit" class="btn btn-primary mb-2">Process User</button>
+							<button id="processUser-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="processUser-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
 					</div>
 			    </div>
 			</div>
