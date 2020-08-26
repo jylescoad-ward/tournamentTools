@@ -24,39 +24,44 @@ First of all you have to create an account on Neocities to actually host the web
 
 Create an account by typing in the name of your website (I did tournamentTools), you can choose anything, as long as it has letters and numbers *only*. Once you have done that, fill out the rest of the fields with your information.
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_1.png)
-![image](https://cdn.jyles.club/github/tournamentTools/g_2.png)
+![image1](http://cdn.jyles.club/github/tournamentTools/g_1.png)
+
+![image2](http://cdn.jyles.club/github/tournamentTools/g_2.png)
 
 
 Once you have done that, click on the checkbox that says "I'm not a robot". When you do this you will have to match words with pictures for verification.
 When you are ready click on "Create My Site" to create your site, it will redirect you to this page. Click on Continue below in the Free Option.
-![image](https://cdn.jyles.club/github/tournamentTools/g_2_1.png)
+
+![image2_1](http://cdn.jyles.club/github/tournamentTools/g_2_1.png)
 
 Then it will take you to this page to verify your email. This can take a bit and make sure you check your spam.
-![image](https://cdn.jyles.club/github/tournamentTools/g_3.png)
+
+![image3](http://cdn.jyles.club/github/tournamentTools/g_3.png)
 
 When you get the email copy the code and put it in the text box below the label "Email Confirmation Token"
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_4.png)
-![image](https://cdn.jyles.club/github/tournamentTools/g_5.png)
+![image4](http://cdn.jyles.club/github/tournamentTools/g_4.png)
+
+![image5](http://cdn.jyles.club/github/tournamentTools/g_5.png)
 
 
 When you're ready click on Confirm Email, it will take you to this page.
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_6.png)
+![image6](http://cdn.jyles.club/github/tournamentTools/g_6.png)
 
 
 Hover over your website name in the top right and click on "Edit site".
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_7.png)
+![image7](http://cdn.jyles.club/github/tournamentTools/g_7.png)
 
 
 Once that is done you can drag and drop the contents of the "public/dist/" folder into the area below the blue toolbar.
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_8.png)
+![image8](http://cdn.jyles.club/github/tournamentTools/g_8.png)
 
 
 After the files have uploaded you can click on the website link below the text "PUBG Tournament Tools" at the top of the page. This will redirect you to the website.
 If all goes well you will see this open up on another tab, Once that is done all you need to do is click on the Settings dropdown and the website will help you with the rest.
 
-![image](https://cdn.jyles.club/github/tournamentTools/g_9.png)
+![image9](http://cdn.jyles.club/github/tournamentTools/g_9.png)
+
