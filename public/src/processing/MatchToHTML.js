@@ -14,25 +14,6 @@ function filterArray(test_array) {
 
     return result;
 }
-/*async function writeFile(location, content){
-	if (fs.existsSync(location)) {
-		fs.unlink(location, (err) => {
-			if (err) {
-				console.error(err)
-				return;
-			}
-		})
-	}
-
-	const { exec } = require("child_process");
-	exec("touch " + location)
-
-	fs.appendFile(location, content, function (err) {
-		if (err) throw err;
-		setTimeout(function () { console.log();signale.success('written to ' + location) }, 2000)
-	});
-	return true;
-}*/
 
 function parseMatch(d) {
 	//d = JSON.parse(d);
