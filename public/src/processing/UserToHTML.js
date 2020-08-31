@@ -91,7 +91,6 @@ async function setThing(data){
     	$("#viewDataField").html("<h1>Processing a request. Please Wait</h1>");
     	const result = await gimmieMatch(data);
     	$("#view_data_currentlyViewing").html(`User: ${data.attributes.name}`)
-        console.log(result)
     	$("#viewDataField").html(result);
     		console.div("[UserToHTML] Processed Request.");
     		$("#view_data_currentlyViewing_short").html("Ready to View Userinfo");
