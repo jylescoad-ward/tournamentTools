@@ -60,32 +60,48 @@ async function validateKey(butClik) {
 }
 
 function checkKey(arg) {
+
+	//Show loader to restrict user from interrupting.
+	custLoader.show();
+	custLoader.context(`Checking API Key...`);
+	console.div("[keyCheck] Checking API Key...");
 	validateKey(arg).then((r) => {
-		console.div("[keyCheck] Checking API Key...");
 		if (!$("#keyCheckAlert").length) {
+			$("#loading").children("span.context").html("Nothing")
 			$("#alerts").append(`<div id="keyCheckAlert"></div>`);
 		}
 		console.div(`[keyCheck] Key is ${r}`)
+		custLoader.context(`API Key is ${r}`);
 		switch(r) {
 			case "noset":
 			case "invalid":
+
+				// Tell user that the key is invalid or undefined.
 				var content = `
 				<div id="keyCheckAlert">
 					<div class="alert alert-danger" role="alert">
 						API Key is invalid or does not exist.
 					</div>
 				</div>`;
+				$(".settings").children(".panel").children(".panel-body").fadeIn("fast");
 				$("#keyCheckAlert").html(content);
 				break;
 			case "valid":
+
+				//Fadeout the key check alert just in case if it was shown before.
 				$("#keyCheckAlert").fadeOut("fast");
 				$("#keyCheckAlert").html(" ")
+
+				//Start API Processor.
 				require("./processing/init.js");
 				break;
 			default:
+
+				// If something screwed up retry.
 				checkKey(arg);
 				break;
 		}
+		custLoader.hide();
 	})
 }
 
