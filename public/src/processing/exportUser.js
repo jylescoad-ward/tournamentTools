@@ -5,25 +5,27 @@ var moment = require("moment");
 module.exports = function() {
 	if (!PUBG_connectionWorking) return;
 
-	$("#exportUserRAW-submit").click(async () => {
-		$("#exportUserRAW-download").hide();
-		$("#exportUserRAW-view").hide();
+	$("#processUser-submit").click(async () => {
+		$("#processUser-download").hide();
+		$("#processUser-view").hide();
 		$("#view_data_currentlyViewing_short").html("Not Viewing Anything");
 		try {
-			var result = await require("./processUser.js")($("#exportUserRAW-id").val());
+			var result = await require("./processUser.js")($("#processUser-id").val());
 			if (result === true) {
 				console.div("[PUBG_API] [exportMatch] An Error Occured.");
 				return;
 			} else {
-				$("#exportUserRAW-download").fadeIn("fast");
-				$("#exportUserRAW-view").fadeIn("fast");
+				$("#processUser-download").fadeIn("fast");
+				$("#processUser-view").fadeIn("fast");
+
+				require("./UserToHTML.js")(result[0]);
 
 				var downloadString_fileName = `user-${result[0].attributes.name}-${moment(new Date()).unix()}.json`;
 				console.div("[PUBG_API] [exportUser] User Ready to Download");
-				$("#exportUserRAW-view").click(()=>{
+				$("#processUser-view").click(()=>{
 					$("#view_data_currentlyViewing_short").html(`Ready to view ${result[0].attributes.name}`);
 				})
-				$("#exportUserRAW-download").click(() => {
+				$("#processUser-download").click(() => {
 					var protectedFile = result[0];
 					delete(protectedFile._api);
 					protectedFile = JSON.stringify(protectedFile,null,"\t");
