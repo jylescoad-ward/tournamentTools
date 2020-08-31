@@ -8,6 +8,7 @@ import "./dropdown.js";
 import "./buildInfo.js"
 
 global.$ = require("jquery")
+global.custLoader = require("./loader.js");
 
 if (require("./../webpack.config.js").mode === "production") {
 	setTimeout(function() {
