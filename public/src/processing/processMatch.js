@@ -17,15 +17,13 @@ var $ = require("jquery");
 function handleFileSelect(evt){
 	$("#processMatch-submit").click(()=>{
 		custLoader.show()
-		custLoader.context("Preparing to Export Match...");
 		var f = document.getElementById("uploadPastMatch_File").files[0]
 
 		var reader = new FileReader();
 		reader.onload = ((theFile)=>{
-			custLoader.context("Parsing Match");
+			console.div("[processMatch] Parsing Match")
 			return function(e) {
 				var parsedJSON = JSON.parse(e.target.result)
-				custLoader.context("Match Parsed");
 				$("#viewDataField").html(require("./MatchToHTML.js").force(parsedJSON));
 				console.log("[processMatch] Parsed Match",parsedJSON);
 				custLoader.hide();

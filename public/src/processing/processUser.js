@@ -17,16 +17,13 @@ $(document).ready(()=>{
 	function handleFileSelect(evt){
 		$("#processUser-submit").click(()=>{
 			custLoader.show()
-			custLoader.context("Preparing to Process User...");
 			var f = document.getElementById("uploadPastUser_file").files[0]
 
 			var reader = new FileReader();
 			reader.onload = ((theFile)=>{
-				custLoader.context("Processing User");
 				return function(e) {
 					var parsedJSON = JSON.parse(e.target.result)
 					$("#viewDataField").html(require("./UserToHTML.js").force(parsedJSON));
-					custLoader.context("Processed User");
 					console.log("[processUser] Parsed Match",parsedJSON);
 				};
 			})(f);

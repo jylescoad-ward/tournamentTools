@@ -8,18 +8,14 @@ async function exportMatch() {
 		$("#processMatch-download").hide();
 		$("#processMatch-view").hide();
 		$("#view_data_currentlyViewing_short").html("Not Viewing Anything");
-		custLoader.context("Checking Fields");
 		console.div("[exportMatch] Checking Fields");
 		if (dat.length !== 36) {
-			console.div("[PUBG_API] [exportMatch] Invalid MatchID");
-			custLoader.context("Invalid MatchID");
+			console.div("[PUBG_API] Invalid MatchID");
 			custLoader.hide()
 		} else {
-			custLoader.context("Fields Valid");
-			custLoader.context("Processing Match");
 			var result = await require("./processMatch.js")($("#processMatch-id").val());
 			if (result === true) {
-				console.div("[PUBG_API] [exportMatch] An Error Occured. You should check the console.");
+				console.div("[PUBG_API] An Error Occured. You should check the console.");
 				custLoader.hide()
 				return;
 			} else {
@@ -29,7 +25,6 @@ async function exportMatch() {
 				var dsFN_o = { "antiDupePrefix": randomString(16), "matchTime": moment(result.attributes.createdAt).unix(), "hash": md5("id-"+result.id+" t-"+moment(result.attributes.createdAt).unix()), };
 				var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}.json`;
 				console.div("[exportMatch] Match Ready to Download or View");
-				custLoader.context("Match Ready to View");
 				$("#processMatch-view").click(()=>{
 					$("#view_data_currentlyViewing_short").html("Ready to View a Match");
 				})
@@ -42,7 +37,7 @@ async function exportMatch() {
 			}
 		}
 	} catch(e) {
-		console.div("[PUBG_API] [exportMatch] An Error Occurred, Check Console");
+		console.div("[exportMatch] An Error Occurred, Check Console");
 		console.error(e);
 	}
 }

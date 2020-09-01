@@ -63,7 +63,6 @@ function checkKey(arg) {
 
 	//Show loader to restrict user from interrupting.
 	custLoader.show();
-	custLoader.context(`Checking API Key...`);
 	console.div("[keyCheck] Checking API Key...");
 	validateKey(arg).then((r) => {
 		if (!$("#keyCheckAlert").length) {
@@ -71,7 +70,6 @@ function checkKey(arg) {
 			$("#alerts").append(`<div id="keyCheckAlert"></div>`);
 		}
 		console.div(`[keyCheck] Key is ${r}`)
-		custLoader.context(`API Key is ${r}`);
 		switch(r) {
 			case "noset":
 			case "invalid":
