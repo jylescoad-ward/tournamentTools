@@ -31,8 +31,8 @@ const autoZipBase = `
 `;
 
         var autoZipContents = Buffer.from(autoZipBase,'base64').toString('utf8').replace("@%build%@",require("./../package.json").build.number);
-        fs.writeFile("./../.autoZipTemp.sh",autoZipContents,()=>{
-            exec('bash ./../.autoZipTemp.sh',(err,stdout,stderr)=>{
+        fs.writeFile("./.autoZipTemp.sh",autoZipContents,()=>{
+            exec('bash ./.autoZipTemp.sh',(err,stdout,stderr)=>{
                 if (err) {
                     console.error(err)
                 } else {
