@@ -8,7 +8,7 @@ function incrementPackage(){
     file.build.date = `${curDate.getFullYear()}_${curDate.getMonth()}_${curDate.getDate()}`;
     file.build.timestamp = Math.round(curDate.valueOf()/1000);
 
-    fs.writeFile("./../package.json", JSON.stringify(file,null,"\t"), function writeJSON(err) {
+    fs.writeFile("./package.json", JSON.stringify(file,null,"\t"), function writeJSON(err) {
         if (err) return console.log(err);
         console.log("incremented package number");
     });
