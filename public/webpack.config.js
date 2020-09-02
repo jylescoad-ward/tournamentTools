@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
+    target: "web",
     module: {
         rules: [
             {
@@ -13,7 +14,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
                 loader: 'url-loader',
                 options: {
-                    limit: 8192,
+                    limit: 16384,
                 }
             }
         ]
@@ -21,8 +22,16 @@ module.exports = {
     resolve: {
         extensions: [ '.js', '.css']
     },
+    performance: {
+        hints: "warning",
+        maxAssetSize: 524288,
+        maxEntrypointSize: 3145728,
+        assetFilter: function(assetFileName){
+            return assetFileName.endsWith('.css') || assetFileName.endsWith(".js");
+        }
+    },
     output: {
-        filename: 'tournament.bundle.js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
     }
 };
