@@ -286,7 +286,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var settings,st = {\n    'containerDiv': \"#loading\",\n    'contextElement': \"span.context\",\n    'imageElement': \"#loading-image\"\n};\nmodule.exports.hide = function(){\n    setTimeout(()=>{\n        $(st.containerDiv).fadeOut(\"fast\");\n    },1500)\n}\nmodule.exports.show = function(){\n    $(st.containerDiv).fadeIn(\"fast\");\n}\nmodule.exports.context = function(dt){\n    $(st.containerDiv).children(st.contextElement).html(dt);\n}\n\n\n//# sourceURL=webpack:///./src/loader.js?");
+eval("var settings,st = {\n    'containerDiv': \"#loading\",\n    'contextElement': \"span.context\",\n    'imageElement': \"#loading-image\"\n};\nmodule.exports.hide = function(){\n    setTimeout(()=>{\n        $(st.containerDiv).fadeOut(\"fast\");\n    },500)\n}\nmodule.exports.show = function(){\n    $(st.containerDiv).fadeIn(\"fast\");\n}\nmodule.exports.context = function(dt){\n    $(st.containerDiv).children(st.contextElement).html(dt);\n}\n\n\n//# sourceURL=webpack:///./src/loader.js?");
 
 /***/ }),
 
