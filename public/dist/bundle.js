@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + chunkId + ".tournament.bundle.js"
+/******/ 		return __webpack_require__.p + "" + chunkId + ".bundle.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -297,7 +297,7 @@ eval("var settings,st = {\n    'containerDiv': \"#loading\",\n    'contextElemen
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function(__dirname) {const path = __webpack_require__(/*! path */ \"./node_modules/path-browserify/index.js\");\n\nmodule.exports = {\n    mode: 'development',\n    entry: './src/index.js',\n    module: {\n        rules: [\n            {\n                test: /\\.css$/i,\n                loader: 'css-loader'\n            },\n            {\n                test: /\\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,\n                loader: 'url-loader',\n                options: {\n                    limit: 8192,\n                }\n            }\n        ]\n    },\n    resolve: {\n        extensions: [ '.js', '.css']\n    },\n    output: {\n        filename: 'tournament.bundle.js',\n        path: path.resolve(__dirname, 'dist'),\n    }\n};\n\n/* WEBPACK VAR INJECTION */}.call(this, \"/\"))\n\n//# sourceURL=webpack:///./webpack.config.js?");
+eval("/* WEBPACK VAR INJECTION */(function(__dirname) {const path = __webpack_require__(/*! path */ \"./node_modules/path-browserify/index.js\");\n\nmodule.exports = {\n    mode: 'development',\n    entry: './src/index.js',\n    target: \"web\",\n    module: {\n        rules: [\n            {\n                test: /\\.css$/i,\n                loader: 'css-loader'\n            },\n            {\n                test: /\\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,\n                loader: 'url-loader',\n                options: {\n                    limit: 16384,\n                }\n            }\n        ]\n    },\n    resolve: {\n        extensions: [ '.js', '.css']\n    },\n    performance: {\n        hints: \"warning\",\n        maxAssetSize: 524288,\n        maxEntrypointSize: 3145728,\n        assetFilter: function(assetFileName){\n            return assetFileName.endsWith('.css') || assetFileName.endsWith(\".js\");\n        }\n    },\n    output: {\n        filename: 'bundle.js',\n        path: path.resolve(__dirname, 'dist'),\n    }\n};\n\n/* WEBPACK VAR INJECTION */}.call(this, \"/\"))\n\n//# sourceURL=webpack:///./webpack.config.js?");
 
 /***/ })
 

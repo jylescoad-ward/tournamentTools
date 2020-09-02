@@ -2,15 +2,16 @@
 	"name": "tournamentTools",
 	"version": "0.0.6",
 	"build": {
-		"number": 116,
-		"date": "2020_8_1",
-		"timestamp": 1598958502
+		"number": 144,
+		"date": "2020_8_2",
+		"timestamp": 1599020430
 	},
 	"sideEffects": false,
 	"main": "src/index.js",
 	"scripts": {
-		"build": "clear && node incrementPackage.js && webpack --development --progress",
-		"build-prod": "node incrementPackage.js && webpack --production --progress --no-cache"
+		"test": "clear && webpack --config webpack.config.js --development",
+		"build": "bash buildScripts/build.sh",
+		"build-prod": "node incrementPackage.js && webpack --config webpack.config.js --production"
 	},
 	"author": "Jyles Coad-Ward [jyles@dariox.club]",
 	"contributors": [
