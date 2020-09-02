@@ -1,7 +1,5 @@
 #!/bin/bash
-cd buildScripts
-node index.js pre
-cd ..
+node buildScripts/index.js pre
 rm -rf dist/*.js
 npx webpack --config webpack.config.js
 touch .autoZipTemp.sh
