@@ -6,7 +6,7 @@ var settings,st = {
 module.exports.hide = function(){
     setTimeout(()=>{
         $(st.containerDiv).fadeOut("fast");
-    },1500)
+    },500)
 }
 module.exports.show = function(){
     $(st.containerDiv).fadeIn("fast");
