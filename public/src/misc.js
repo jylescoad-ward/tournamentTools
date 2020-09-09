@@ -33,6 +33,7 @@ global.getCookie = function(cname) {
 			return c.substring(name.length, c.length);
 		}
 	}
+	console.log(`[getCookie] Fetched cookie ${cname} with value of ${c.substring(name.length, c.length)}`)
 	return "";
 }
 global.setCookie = function(cname,cvalue) {
@@ -40,4 +41,15 @@ global.setCookie = function(cname,cvalue) {
 	d.setTime(d.getTime() + 604800000);
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	console.log(`[setCookie] Set Cookie ${cname} with value of ${cvalue}`);
+	return "";
+}
+global.validURL = function(str) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return !!pattern.test(str);
 }
