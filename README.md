@@ -1,6 +1,6 @@
 # tournamentTools
 
-This repo was mostly made for my web-based tournament tools that I will be using at [RFLan](https://rflan.org), mostly to make my job and other peoples job much more easy.
+This repo was mostly made for my web-based tournament tools that I will be using at [RFLan](https://rflan.org), mostly to make my job and other peoples job much more easy. If you would like to view the latest working version you can check it out [here](https://jylescoad-ward.github.io/tournamentTools/demo/).
 
 ### Backstory
 
