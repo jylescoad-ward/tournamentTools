@@ -1,18 +1,16 @@
 import $ from "jquery";
 
 $(document).ready(()=>{
-	setTimeout(()=>{
-		if (getCookie("proxyAddress").length < 1) {
-			// No Proxy Address
-			setCookie("proxyAddress","default");
-		}
+	if (getCookie("proxyAddress").length < 1) {
+		// No Proxy Address
+		setCookie("proxyAddress","default");
+	}
 
-		if (getCookie("proxyAddress") == "default") {
-			$("#setting_currentProxyAddress").html("http://api.dxcdn.net/tournament");
-			setCookie("proxyAddress","http://api.dxcdn.net/tournament");
-		}
-		$("#setting_currentProxyAddress").html(getCookie("proxyAddress"));
-	})
+	if (getCookie("proxyAddress") == "default") {
+		$("#setting_currentProxyAddress").html("http://api.dxcdn.net/tournament");
+		setCookie("proxyAddress","http://api.dxcdn.net/tournament");
+	}
+	$("#setting_currentProxyAddress").html(getCookie("proxyAddress"));
 })
 
 $("#setProxyAddress-submit").click(()=>{
