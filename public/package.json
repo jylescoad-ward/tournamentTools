@@ -2,9 +2,9 @@
 	"name": "tournamentTools",
 	"version": "0.0.6",
 	"build": {
-		"number": 147,
-		"date": "2020_8_2",
-		"timestamp": 1599024124
+		"number": 148,
+		"date": "2020_8_9",
+		"timestamp": 1599665114
 	},
 	"sideEffects": false,
 	"main": "src/index.js",
@@ -32,9 +32,7 @@
 		"cookie": "^0.4.1",
 		"jquery": "^3.5.1",
 		"lodash": "^4.17.20",
-		"md5": "^2.3.0",
-		"moment": "^2.27.0",
-		"sweetalert2": "^9.17.1"
+		"md5": "^2.3.0"
 	},
 	"repository": {
 		"type": "git",
