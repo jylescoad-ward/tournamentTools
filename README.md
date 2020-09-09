@@ -1,10 +1,10 @@
 # tournamentTools
 
-This repo was mostly made for my web-based tournament tools that I will be using at [RFLan](https://rflan.org), mostly to make my job and other peoples job much more easy. If you would like to view the latest working version you can check it out [here](https://jylescoad-ward.github.io/tournamentTools/demo/).
+This repo was mostly made for my web-based tournament tools that I will be using at [RFLan](https://rflan.org), mostly to make my job and other peoples job much more easy. If you would like to view the latest working version you can check it out [here](https://jylescoad-ward.github.io/tournamentTools/demo/index.html).
 
 ### Backstory
 
-It all started off working on a PUBG Match parser while in a RFLan Volunteer meeting, I volunteered to manage PUBG and I was wondering if there was an API for PUBG that could make my job 100x more easy. So that is what I did, created a prototype of [pubg-node](https://github.com/jylescoad-ward/pubg-api) in about an hour. 
+It all started off working on a PUBG Match parser while in a RFLan Volunteer meeting, I volunteered to manage PUBG and I was wondering if there was an API for PUBG that could make my job 100x more easy. So that is what I did, created a prototype of [pubg-node](https://github.com/jylescoad-ward/pubg-api) in about an hour.
 
 The following days after that was just polishing the turd of a prototype that I made. Sadly that prototype does not work anymore (not sure why), so recently I had the urge to create something so I started working on this, tournamentTools. A Web-based Parser, Viewer, and Exporter for PUBG Matches and Users. Everything runs in your browser with the help of [webpack](https://github.com/webpack/webpack) a node module that packs lots of Javascript and CSS files (only using the javascript side of webpack) into one so you can speed up your website (don't really care about that) and use node.js modules (that's the one I care about).
 
@@ -64,4 +64,3 @@ After the files have uploaded you can click on the website link below the text "
 If all goes well you will see this open up on another tab, Once that is done all you need to do is click on the Settings dropdown and the website will help you with the rest.
 
 ![image9](http://cdn.jyles.club/github/tournamentTools/g_9.png)
-
