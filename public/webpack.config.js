@@ -24,7 +24,7 @@ module.exports = {
     },
     performance: {
         hints: "warning",
-        maxAssetSize: 524288,
+        maxAssetSize: 2097152,
         maxEntrypointSize: 3145728,
         assetFilter: function(assetFileName){
             return assetFileName.endsWith('.css') || assetFileName.endsWith(".js");
