@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+	<head>
+		<title>PUBG Tournament Tools</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/index.css" type="text/css" />
+	</head>
+	<body>
+		<div id="loading">
+			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			<span class="context">Loading Page</span>
+		</div>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">Tournament Tools</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+
+		<!-- = Content = -->
+		<main role="main" class="container">
+			<div id="alerts"> </div>
+
+			<!-- ====== Processing ====== -->
+			<div class="processing requireAPIKey">
+				<h3>Processing</h3>
+				<!-- ==== Process Match ==== -->
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Process Match</h3>
+			    	</div>
+			    	<div class="panel-body startClosed">
+							<div class="form-group" id="PUBGMatchIDGroup">
+								<label for="processMatch-id">PUBG MatchID</label>
+								<input type="text" class="form-control" id="processMatch-id" placeholder='Example: a9e8aee4-40b3-4eb5-ac95-52c903dbfe5f'>
+							</div>
+							<div class="form-group" id="PUBGUploadMatchGroup">
+								<label for="uploadPastMatch">Upload Past Match</label><br>
+								<input type="file" id="uploadPastMatch_File" accept="application/json" name="uploadedPastMatch">
+							</div>
+							<button id="processMatch-submit" type="submit" class="btn btn-primary mb-2">Process Match</button>
+							<button id="processMatch-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="processMatch-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+
+				<!-- ==== Export User Data ==== -->
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h3 class="panel-title">Process User</h3>
+			    	</div>
+			    	<div class="panel-body startClosed">
+							<div class="form-group">
+								<label for="processUser-id">PUBG Username</label>
+								<input type="text" class="form-control" id="processUser-id" placeholder='Example: xSuperSeed'>
+							</div>
+							<div class="form-group" id="PUBGUploadUserGroup">
+								<label for="uploadPastUser">Upload Past Match</label><br>
+								<input type="file" id="uploadPastUser_file" accept="application/json" name="uploadedPastMatch">
+							</div>
+							<button id="processUser-submit" type="submit" class="btn btn-primary mb-2">Process User</button>
+							<button id="processUser-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
+							<button id="processUser-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
+					</div>
+			    </div>
+			</div>
+
+			<!-- ====== View Data ====== -->
+			<div class="view_data requireAPIKey">
+				<hr>
+				<div class="panel panel-primary">
+					<div class="panel-heading clickable">
+						<h3 class="panel-title">View Data</h3>
+						<h4 class="panel-subtitle" id="view_data_currentlyViewing_short">Not Viewing Anything</h4>
+					</div>
+					<div class="panel-body startClosed">
+						<h3>Currently Viewing <code id="view_data_currentlyViewing"></code></h3>
+						<div id="viewDataField">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ====== Settings ====== -->
+			<div class="settings">
+				<hr>
+				<h3>Settings</h3>
+				<div class="panel panel-primary">
+			        <div class="panel-heading clickable">
+			    		<h4 class="panel-title">Settings</h4>
+			    	</div>
+			    	<div class="panel-body startClosed">
+						<div id="apiNotice">
+							<h3>IMPORTANT</h3>
+							<p>If you only see this and console output then that means your API Key has not been set or it is invalid, in order for this to work <br>
+								you must set your API key.<br>
+								<br>
+								To get your API Key you must create an application on the <a href="http://developer.pubg.com/">Offical PUBG Developer</a> website.<br>
+								Once you have done that, set it by pasting it in the text box below and click the button below that, by doing this you agree for us to use your cookies to store you API Key, this is done so we can not see it in any way because all of the processing is done by your browser.
+							</p>
+						</div>
+						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
+						<div class="form-group">
+							<label for="setAPIKEY-input">Set PUBG API Key</label>
+							<input type="text" class="form-control" id="setAPIKEY-input">
+						</div>
+						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
+					</div>
+			    </div>
+			</div>
+
+			<!-- ====== Console and Others ====== -->
+			<div class="console forceOpen">
+				<hr>
+				<div class="panel panel-primary">
+					<div class="panel-heading clickable">
+						<h3 class="panel-title">Console Ouput and Others</h3>
+					</div>
+					<div class="panel-body">
+						<div class="console-output">
+							<h3>Console Output</h3>
+							<code id="tourn-consoleout" class="tournament">
+
+							</code>
+						</div>
+						<hr>
+						<div class="buildInfo">
+							<h3>Build Info</h3>
+							<table class="table table-sm table-responsive">
+								<tr>
+									<th>Build Number</th>
+									<td id="buildInfo-no"></td>
+								</tr>
+								<tr>
+									<th>Build Date and Time</th>
+									<td id="buildInfo-dateandtime"></td>
+								</tr>
+								<tr>
+									<th>Package Name</th>
+									<td id="buildInfo-pkg_name"></td>
+								</tr>
+								<tr>
+									<th>Contributors</th>
+									<td id="buildInfo-pkg_contrib"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- == Other Shit == -->
+			<div class="bottomOfPage"></div>
+		</main>
+
+		<!-- === Javascript Libraries === -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="bundle.js"></script>
+		<script src="demo.js"></script>
+	</body>
+</html>
