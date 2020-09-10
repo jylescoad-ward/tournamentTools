@@ -27,11 +27,8 @@
 		"webpack-cli": "^3.3.12"
 	},
 	"dependencies": {
-		"axios": "^0.19.2",
-		"battlegrounds-revisited": "^1.5.4",
-		"cookie": "^0.4.1",
+		"battlegrounds-revisited": "^1.5.5",
 		"jquery": "^3.5.1",
-		"lodash": "^4.17.20",
 		"md5": "^2.3.0"
 	},
 	"repository": {
