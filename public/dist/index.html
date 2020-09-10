@@ -56,8 +56,14 @@
 								<input type="text" class="form-control" id="processUser-id" placeholder='Example: xSuperSeed'>
 							</div>
 							<div class="form-group" id="PUBGUploadUserGroup">
-								<label for="uploadPastUser">Upload Past Match</label><br>
+								<label for="uploadPastUser">Process Archived User</label><br>
 								<input type="file" id="uploadPastUser_file" accept="application/json" name="uploadedPastMatch">
+							</div>
+							<hr>
+							<div class="form-group" id="userExportSettings" style="display:none;">
+								<h4>Export Settings</h4>
+								<input id="userExportSettings_includeRecentMatches" type="checkbox">
+								<label for="userExportSettings_includeRecentMatches">Include Recent Matches</label>
 							</div>
 							<button id="processUser-submit" type="submit" class="btn btn-primary mb-2">Process User</button>
 							<button id="processUser-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
