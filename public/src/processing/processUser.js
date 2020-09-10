@@ -24,7 +24,7 @@ $(document).ready(()=>{
 				return function(e) {
 					var parsedJSON = JSON.parse(e.target.result)
 					$("#viewDataField").html(require("./UserToHTML.js").force(parsedJSON));
-					console.log("[processUser] Parsed Match",parsedJSON);
+					console.log("[processUser] Parsed User",parsedJSON);
 				};
 			})(f);
 			reader.readAsText(f);
