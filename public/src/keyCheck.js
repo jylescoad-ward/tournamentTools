@@ -9,15 +9,19 @@ async function validateKey(butClik) {
 		return 'noset';
 	} else {
 		//token to check is fetched from the browsrs cookies.
-		var token = getCookie("apiKey");
+		var settings = {
+			key: getCookie("apiKey"),
+			platform: 'steam',
+			proxy: getCookie("proxyAddress")
+		};
 		if (butClik) {
-			token = $("#setAPIKEY-input").val()
+			settings.key = $("#setAPIKEY-input").val()
 		}
 
 		//Create PUBG API Instance and get request to check
 		//		if the key is valid by retriving my usernames
 		//		info.
-		var pubg = new pubgMod(token);
+		var pubg = new pubgMod(settings);
 		const res = await pubg.getPlayers({names: ['xSuperSeed']})
 
 		//Print to console result (will print even if it is a fail)
