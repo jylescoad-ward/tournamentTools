@@ -10,7 +10,8 @@
 	"main": "src/index.js",
 	"scripts": {
 		"test": "clear && webpack --config webpack.config.js --development",
-		"build": "bash buildScripts/build.sh"
+		"build": "bash buildScripts/build.sh",
+		"generateDemo": "webpack --config demo.webpack.config.js"
 	},
 	"author": "Jyles Coad-Ward [jyles@dariox.club]",
 	"contributors": [

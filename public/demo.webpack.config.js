@@ -1,7 +1,8 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'production',
+	cache: false,
+    mode: 'development',
     entry: './src/index.js',
     target: "web",
     module: {
@@ -24,7 +25,7 @@ module.exports = {
     },
     performance: {
         hints: "warning",
-        maxAssetSize: 524288,
+        maxAssetSize: 4194304,
         maxEntrypointSize: 3145728,
         assetFilter: function(assetFileName){
             return assetFileName.endsWith('.css') || assetFileName.endsWith(".js");
@@ -32,6 +33,7 @@ module.exports = {
     },
     output: {
         filename: 'demo.js',
+		chunkFilename: '[name].demo.js',
         path: path.resolve(__dirname, 'dist'),
     }
 };
