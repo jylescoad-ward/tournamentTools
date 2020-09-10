@@ -7,6 +7,7 @@ module.exports = function() {
 
 	$("#processUser-submit").click(async () => {
 		custLoader.show()
+		custLoader.context("[exportUser] Processing User");
 		$("#processUser-download").hide();
 		$("#processUser-view").hide();
 		$("#view_data_currentlyViewing_short").html("Not Viewing Anything");
@@ -17,8 +18,11 @@ module.exports = function() {
 				custLoader.hide()
 				return;
 			} else {
+				custLoader.context("[exportUser] Processed User");
 				$("#processUser-download").fadeIn("fast");
 				$("#processUser-view").fadeIn("fast");
+				$("#userExportSettings").fadeIn("fast");
+				$("#PUBGUploadUserGroup").fadeOut("fast");
 
 				require("./UserToHTML.js")(result[0]);
 
