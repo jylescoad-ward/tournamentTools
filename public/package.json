@@ -29,7 +29,8 @@
 	"dependencies": {
 		"battlegrounds-revisited": "^1.5.5",
 		"jquery": "^3.5.1",
-		"md5": "^2.3.0"
+		"md5": "^2.3.0",
+		"moment": "^2.27.0"
 	},
 	"repository": {
 		"type": "git",
