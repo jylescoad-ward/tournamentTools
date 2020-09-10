@@ -2,7 +2,7 @@ var $ = require("jquery");
 var md5 = require("md5");
 var moment = require("moment");
 
-async function exportMatch() {
+async function exportMatch(dat) {
 	try {
 		custLoader.show()
 		$("#processMatch-download").hide();
@@ -45,8 +45,8 @@ async function exportMatch() {
 module.exports = function() {
 	if (!PUBG_connectionWorking) return;
 
-	$("#processMatch-submit").click(async (dat) => {
-		exportMatch(dat.val());
+	$("#processMatch-submit").click(async (dt) => {
+		exportMatch($("#processMatch-id").val());
 	})
 	$("#viewUser_selectMatch").click(async () => {
 		exportMatch($(this).prop("name"));
