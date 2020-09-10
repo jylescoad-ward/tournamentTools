@@ -13,15 +13,19 @@ $(document).ready(()=>{
 	setTimeout(async () => {
 		if (getCookie("apiKey").length === 264) {
 			var PUBG = require("battlegrounds-revisited");
-			global.PUBG_api = new PUBG({
+			var settings = {
 				key: getCookie("apiKey"),
-				proxyAddress: getCookie("proxyAddress"),
-			});
-			if (getCookie("keyValid") === "true") {
-				console.log("[PUBG_API] [processing] Called User and Match Modules.");
-				require("./user.js");
-				require("./match.js");
-			}
+				platform: 'steam',
+				proxy: getCookie("proxyAddress")
+			};
+			setTimeout(()=>{
+				global.PUBG_api = new PUBG(settings);
+				if (getCookie("keyValid") === "true") {
+					console.log("[PUBG_API] [processing] Called User and Match Modules.");
+					require("./user.js");
+					require("./match.js");
+				}
+			},500)
 		}
 	},500)
 })
