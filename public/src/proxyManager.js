@@ -3,11 +3,10 @@ import $ from "jquery";
 $(document).ready(()=>{
 	if (getCookie("proxyAddress").length < 1) {
 		// No Proxy Address
-		setCookie("proxyAddress","default");
+		setCookie("proxyAddress","http://api.dxcdn.net/tournament");
 	}
 
 	if (getCookie("proxyAddress") == "default") {
-		$("#setting_currentProxyAddress").html("http://api.dxcdn.net/tournament");
 		setCookie("proxyAddress","http://api.dxcdn.net/tournament");
 	}
 	$("#setting_currentProxyAddress").html(getCookie("proxyAddress"));
