@@ -21,7 +21,7 @@ module.exports = function() {
 				custLoader.context("[exportUser] Processed User");
 				$("#processUser-download").fadeIn("fast");
 				$("#processUser-view").fadeIn("fast");
-				$("#userExportSettings").fadeIn("fast");
+				//$("#userExportSettings").fadeIn("fast");
 				$("#PUBGUploadUserGroup").fadeOut("fast");
 
 				require("./UserToHTML.js")(result[0]);
