@@ -1,6 +1,8 @@
 #!/bin/bash
 
 build="@%build%@"
+currentTimestamp="@%curUTX%@"
+USER=$(whoami)
 
 # remove .DS_Store
 	echo "## Removing .DS_Store"
@@ -26,6 +28,10 @@ build="@%build%@"
 	zip -r release/build-$build-SOURCE.zip src/
 	echo ""
 	echo "## Zipped up files"
+
+# add to release history
+	echo "$build,$currentTimestamp,$USER" >> release/history.csv
+	echo "## Added Release to 'release/history.csv'"
 
 # md5 sum
 	cd release/

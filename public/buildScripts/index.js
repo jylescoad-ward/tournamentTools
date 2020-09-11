@@ -27,10 +27,12 @@ var preWebpackBuild = function() {
 var postWebpackBuild = function() {
     // Contents of "./src_autoZip.sh" in base64
 const autoZipBase = `
-        IyEvYmluL2Jhc2gKCmJ1aWxkPSJAJWJ1aWxkJUAiCgojIHJlbW92ZSAuRFNfU3RvcmUKCWVjaG8gIiMjIFJlbW92aW5nIC5EU19TdG9yZSIKCWZ1bmN0aW9uIGRzUmVtb3ZlKCl7CgkJZmluZCAuIC1uYW1lICcuRFNfU3RvcmUnIC10eXBlIGYgLWRlbGV0ZQoJfQoKCWNkIGRpc3QvCglkc1JlbW92ZQoJY2QgLi4KCgljZCBzcmMvCglkc1JlbW92ZQoJY2QgcHJvY2Vzc2luZy8KCWRzUmVtb3ZlCgljZCAuLgoJY2QgLi4KCWVjaG8gIiMjIFJlbW92ZWQgLkRTX1N0b3JlIgoKCiMgemlwIHVwIGRpc3QgYW5kIHNyYwoJemlwIC1yIHJlbGVhc2UvYnVpbGQtJGJ1aWxkLVJFTEVBU0UuemlwIGRpc3QvCgl6aXAgLXIgcmVsZWFzZS9idWlsZC0kYnVpbGQtU09VUkNFLnppcCBzcmMvCgllY2hvICIiCgllY2hvICIjIyBaaXBwZWQgdXAgZmlsZXMiCgojIG1kNSBzdW0KCWNkIHJlbGVhc2UvCgllY2hvICIiCgllY2hvICItLS0tLS0tLSBNRDUgU1VNIC0tLS0tLS0tIgoJbWQ1IGJ1aWxkLSRidWlsZCouemlwCgllY2hvICItLS0tLS0tLSBFTkQgTUQ1IC0tLS0tLS0tIgoJY2QgLi4K
+        IyEvYmluL2Jhc2gKCmJ1aWxkPSJAJWJ1aWxkJUAiCmN1cnJlbnRUaW1lc3RhbXA9IkAlY3VyVVRYJUAiClVTRVI9JCh3aG9hbWkpCgojIHJlbW92ZSAuRFNfU3RvcmUKCWVjaG8gIiMjIFJlbW92aW5nIC5EU19TdG9yZSIKCWZ1bmN0aW9uIGRzUmVtb3ZlKCl7CgkJZmluZCAuIC1uYW1lICcuRFNfU3RvcmUnIC10eXBlIGYgLWRlbGV0ZQoJfQoKCWNkIGRpc3QvCglkc1JlbW92ZQoJY2QgLi4KCgljZCBzcmMvCglkc1JlbW92ZQoJY2QgcHJvY2Vzc2luZy8KCWRzUmVtb3ZlCgljZCAuLgoJY2QgLi4KCWVjaG8gIiMjIFJlbW92ZWQgLkRTX1N0b3JlIgoKCiMgemlwIHVwIGRpc3QgYW5kIHNyYwoJemlwIC1yIHJlbGVhc2UvYnVpbGQtJGJ1aWxkLVJFTEVBU0UuemlwIGRpc3QvCgl6aXAgLXIgcmVsZWFzZS9idWlsZC0kYnVpbGQtU09VUkNFLnppcCBzcmMvCgllY2hvICIiCgllY2hvICIjIyBaaXBwZWQgdXAgZmlsZXMiCgojIGFkZCB0byByZWxlYXNlIGhpc3RvcnkKCWVjaG8gIiRidWlsZCwkY3VycmVudFRpbWVzdGFtcCwkVVNFUiIgPj4gcmVsZWFzZS9oaXN0b3J5LmNzdgoJZWNobyAiIyMgQWRkZWQgUmVsZWFzZSB0byAncmVsZWFzZS9oaXN0b3J5LmNzdiciCgojIG1kNSBzdW0KCWNkIHJlbGVhc2UvCgllY2hvICIiCgllY2hvICItLS0tLS0tLSBNRDUgU1VNIC0tLS0tLS0tIgoJbWQ1IGJ1aWxkLSRidWlsZCouemlwCgllY2hvICItLS0tLS0tLSBFTkQgTUQ1IC0tLS0tLS0tIgoJY2QgLi4K
 `;
 
-        var autoZipContents = Buffer.from(autoZipBase,'base64').toString('utf8').replace("@%build%@",require("./../package.json").build.number);
+        var autoZipContents = Buffer.from(autoZipBase,'base64').toString('utf8')
+            .replace("@%build%@",require("./../package.json").build.number)
+            .replace("@%curUTX%@",require("./../package.json").build.timestamp);
         fs.writeFile("./.autoZipTemp.sh",autoZipContents,()=>{
             exec('bash ./.autoZipTemp.sh',(err,stdout,stderr)=>{
                 if (err) {
