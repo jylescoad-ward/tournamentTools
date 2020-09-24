@@ -20,30 +20,6 @@ global.downloadString = function(filename, text) {
   document.body.removeChild(element);
 }
 
-global.getCookie = function(cname) {
-	var name = cname + "=";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(';');
-	for(var i = 0; i <ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		}
-		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	console.log(`[getCookie] Fetched cookie ${cname} with value of ${c.substring(name.length, c.length)}`)
-	return "";
-}
-global.setCookie = function(cname,cvalue) {
-	var d = new Date();
-	d.setTime(d.getTime() + 604800000);
-	var expires = "expires="+ d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-	console.log(`[setCookie] Set Cookie ${cname} with value of ${cvalue}`);
-	return "";
-}
 global.validURL = function(str) {
   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
