@@ -39,13 +39,11 @@ async function exportMatch(dat) {
 	}
 }
 
-module.exports = function() {
-	if (!PUBG_connectionWorking) return;
+if (!PUBG_connectionWorking) return;
 
-	$("#processMatch-submit").click(async (dt) => {
-		exportMatch($("#processMatch-id").val());
-	})
-	$("#viewUser_selectMatch").click(async () => {
-		exportMatch($(this).prop("name"));
-	})
-}();
+$("#processMatch-submit").click(async (dt) => {
+	exportMatch($("#processMatch-id").val());
+})
+$("#viewUser_selectMatch").click(async () => {
+	exportMatch($(this).prop("name"));
+})
