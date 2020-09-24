@@ -39,6 +39,11 @@
 								<label for="uploadPastMatch">Upload Past Match</label><br>
 								<input type="file" id="uploadPastMatch_File" accept="application/json" name="uploadedPastMatch">
 							</div>
+							<hr>
+							<div class="form-group" id="matchExportSettings" style="display:none;">
+								<input for="match_includeTelemetry" type="checkbox">
+								<label for="match_includeTelemetry">Include Telemetry (Player Actions)</label>
+							</div>
 							<button id="processMatch-submit" type="submit" class="btn btn-primary mb-2">Process Match</button>
 							<button id="processMatch-download" class="btn btn-primary mb-2" style="display:none;">Download</button>
 							<button id="processMatch-view" class="btn btn-primary mb-2" style="display:none;">View Data</button>
