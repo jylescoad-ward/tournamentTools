@@ -12,7 +12,13 @@ input.key {
 
 #settings_currentAPIKEY{
 	max-width: 60%;
+	filter: blur(8px);
 }
+#settings_currentAPIKEY:hover{
+  filter: blur(0);
+  transition: 150ms;
+}
+
 .bottomOfPage{
 	padding-bottom: 200px;
 }
