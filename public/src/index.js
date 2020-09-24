@@ -13,6 +13,9 @@ import "./keyCheck.js";
 import "./dropdown.js";
 import "./buildInfo.js";
 import "./proxyManager.js";
+
+window.match={};
+
 /*template
 require("./.js");*/
 
