@@ -19,20 +19,19 @@ async function exportMatch(dat) {
 				custLoader.hide()
 				return;
 			} else {
-				$("#processMatch-download").show();
-				$("#processMatch-view").show();
+				// Fade in stuff
+				$("#processMatch-download").fadeIn("fast");
+				$("#processMatch-view").fadeIn("fast");
+				$("#matchExportSettings").fadeIn("fast");
 
-				var dsFN_o = { "antiDupePrefix": randomString(16), "matchTime": moment(result.attributes.createdAt).unix(), "hash": md5("id-"+result.id+" t-"+moment(result.attributes.createdAt).unix()), };
-				var downloadString_fileName = `match-${dsFN_o.antiDupePrefix}-${dsFN_o.matchTime}.json`;
 				console.div("[exportMatch] Match Ready to Download or View");
+
+				match.download(result);
+
 				$("#processMatch-view").click(()=>{
 					$("#view_data_currentlyViewing_short").html("Ready to View a Match");
 				})
-				require("./MatchToHTML.js")(result)
-				$("#processMatch-download").click(() => {
-					downloadString(downloadString_fileName,JSON.stringify(result,null,"\t"));
-					console.div("[exportMatch] Downloaded Match "+result.id);
-				})
+				require("./MatchToHTML.js")(result);
 				custLoader.hide();
 			}
 		}
