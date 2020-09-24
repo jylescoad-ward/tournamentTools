@@ -1,15 +1,15 @@
 import $ from "jquery";
 
 $(document).ready(()=>{
-	if (getCookie("proxyAddress").length < 1) {
+	if (localStorage.proxyAddress === undefined) {
 		// No Proxy Address
-		setCookie("proxyAddress","http://api.dxcdn.net/tournament");
+		localStorage.proxyAddress = "http://api.dxcdn.net/tournament";
 	}
 
-	if (getCookie("proxyAddress") == "default") {
-		setCookie("proxyAddress","http://api.dxcdn.net/tournament");
+	if (localStorage.proxyAddress == "default") {
+	localStorage.proxyAddress = "http://api.dxcdn.net/tournament";
 	}
-	$("#setting_currentProxyAddress").html(getCookie("proxyAddress"));
+	$("#setting_currentProxyAddress").html(localStorage.proxyAddress);
 })
 
 $("#setProxyAddress-submit").click(()=>{
@@ -17,7 +17,7 @@ $("#setProxyAddress-submit").click(()=>{
 	var givenAPIInField = $("#setProxyAddress-input").val()
 	if (validURL(givenAPIInField)) {
 		// api address valid
-		setCookie("proxyAddress",givenAPIInField);
+		localStorage.proxyAddress = givenAPIInField
 		custLoader.context("[proxyManager] Proxy Address Changed, Please Refresh this page.");
 	} else {
 		// valid api address
