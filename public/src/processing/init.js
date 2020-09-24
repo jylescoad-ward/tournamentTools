@@ -11,16 +11,16 @@
 import $ from "jquery";
 $(document).ready(()=>{
 	setTimeout(async () => {
-		if (getCookie("apiKey").length === 264) {
+		if (localStorage.APIKey !== undefined) {
 			var PUBG = require("battlegrounds-revisited");
 			var settings = {
-				key: getCookie("apiKey"),
+				key: localStorage.APIKey,
 				platform: 'steam',
-				proxy: getCookie("proxyAddress")
+				proxy: localStorage.proxyAddress
 			};
 			setTimeout(()=>{
 				global.PUBG_api = new PUBG(settings);
-				if (getCookie("keyValid") === "true") {
+				if (localStorage.keyValid == "true") {
 					console.log("[PUBG_API] [processing] Called User and Match Modules.");
 					require("./user.js");
 					require("./match.js");
