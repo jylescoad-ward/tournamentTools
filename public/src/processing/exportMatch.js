@@ -1,6 +1,4 @@
 var $ = require("jquery");
-var md5 = require("md5");
-var moment = require("moment");
 
 async function exportMatch(dat) {
 	try {
