@@ -3,22 +3,20 @@ import pubgMod from "battlegrounds-revisited";
 
 async function validateKey(butClik) {
 
-	// If the button was not clicked and the api object does not exist
-	if (!butClik && localStorage.APIKey === undefined) {
-		localStorage.keyValid = false;
+	// If the button was not clicked and the api cookie does not exist
+	if (!butClik && getCookie("apiKey").length === 0) {
+		setCookie("keyValid","false");
 		return 'noset';
 	} else {
-		//token to check is fetched from the browsers local storage.
+		//token to check is fetched from the browsrs cookies.
 		var settings = {
-			key: localStorage.APIKey,
+			key: getCookie("apiKey"),
 			platform: 'steam',
-			proxy: localStorage.proxyAddress
+			proxy: getCookie("proxyAddress")
 		};
 		if (butClik) {
 			settings.key = $("#setAPIKEY-input").val()
 		}
-
-		console.log(settings)
 
 		//Create PUBG API Instance and get request to check
 		//		if the key is valid by retriving my usernames
@@ -32,9 +30,9 @@ async function validateKey(butClik) {
 			//Print to console div and developer console that
 			//		the key is valid and working.
 			console.div("[keyCheck] Key Validated.")
-			localStorage.keyValid = true;
+			setCookie("keyValid","true");
 			if (butClik) {
-				localStorage.APIKey = $("#setAPIKEY-input").val();
+				setCookie("apiKey",$("#setAPIKEY-input").val());
 			}
 
 			//Tell the user that they connected to the PUBG_API
@@ -44,7 +42,7 @@ async function validateKey(butClik) {
 			global.PUBG_connectionWorking = true;
 
 			//Set misc things for the user
-			$("#settings_currentAPIKEY").html(localStorage.APIKey);
+			$("#settings_currentAPIKEY").html(getCookie("apiKey"));
 
 			//Start API Processors and show the elements that
 			//		require the PUBG api to function. (elements
@@ -57,7 +55,7 @@ async function validateKey(butClik) {
 			return "valid";
 		} else {
 			console.div("[keyCheck] Key Invalid")
-			localStorage.keyValid = false;
+			setCookie("keyValid","false");
 			global.PUBG_connectionWorking = false;
 			$("#loadingOverlay").fadeOut("fast");
 			return "invalid";
@@ -91,8 +89,6 @@ function checkKey(arg) {
 				$("#keyCheckAlert").html(content);
 				break;
 			case "valid":
-				document.body.scrollTop = 0; // For Safari
-				document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
 				//Fadeout the key check alert just in case if it was shown before.
 				$("#keyCheckAlert").fadeOut("fast");
