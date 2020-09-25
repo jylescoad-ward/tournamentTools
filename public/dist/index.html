@@ -115,7 +115,7 @@
 								Once you have done that, set it by pasting it in the text box below and click the button below that, by doing this you agree for us to use your cookies to store you API Key, this is done so we can not see it in any way because all of the processing is done by your browser.
 							</p>
 						</div>
-						<p>Current API Key <code id="settings_currentAPIKEY"></code></p>
+						<p>Current API Key <div style="overflow:hidden;" class="settings_currentAPIKey_container"><code id="settings_currentAPIKEY"></code></div></p>
 						<div class="form-group">
 							<label for="setAPIKEY-input">Set PUBG API Key</label>
 							<input type="text" class="form-control" id="setAPIKEY-input">
@@ -123,12 +123,23 @@
 						<button id="setAPIKEY-submit" class="btn btn-primary mb-2">Set API Key</button>
 						<hr>
 						<h4>if you don't know what you're doing, dont change the proxy address</h4>
-						<p>Current API Key <code id="setting_currentProxyAddress">http://api.dxcdn.net/tournament</code></p>
+						<p>Current Proxy Address <code id="setting_currentProxyAddress">http://api.dxcdn.net/tournament</code></p>
+						<p>Default Proxy Address <code>http://api.dxcdn.net/tournament</code></p>
 						<div class="form-group">
 							<label for="setProxyAddress-input">Set API Proxy Address</label>
 							<input type="text" class="form-control" id="setProxyAddress-input" placeholder="Default: http://api.dxcdn.net">
 						</div>
 						<button id="setProxyAddress-submit" class="btn btn-primary mb-2">Set Proxy Address</button>
+						<hr>
+						<h4>Miscellaneous Settings</h4>
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="enableDeveloperMode">
+							<label for="enableDeveloperMode">Developer Mode</label>
+						</div>
+						<hr>
+						<h4>Danger Zone</h4>
+
+						<button id="deleteAPIKEY" class="btn btn-danger mb-2">Delete API Key</button><br>
 					</div>
 			    </div>
 			</div>
@@ -138,7 +149,7 @@
 				<hr>
 				<div class="panel panel-primary">
 					<div class="panel-heading clickable">
-						<h3 class="panel-title">Console Ouput and Others</h3>
+						<h3 class="panel-title">Console Ouput and Other Info</h3>
 					</div>
 					<div class="panel-body">
 						<div class="console-output">
