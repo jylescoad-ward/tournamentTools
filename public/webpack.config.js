@@ -4,7 +4,6 @@ module.exports = {
 	cache: false,
     mode: 'development',
     entry: './src/index.js',
-    target: "web",
     module: {
         rules: [
             {
@@ -31,6 +30,11 @@ module.exports = {
             return assetFileName.endsWith('.css') || assetFileName.endsWith(".js");
         }
     },
+	optimization: {
+		removeAvailableModules: false,
+		removeEmptyChunks: false,
+		splitChunks: false,
+	},
     output: {
         filename: 'bundle.js',
 		chunkFilename: '[name].bundle.js',
