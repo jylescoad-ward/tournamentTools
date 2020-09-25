@@ -78,6 +78,7 @@ function checkKey(arg) {
 		console.div(`[keyCheck] Key is ${r}`)
 		switch(r) {
 			case "noset":
+				$("#settings_currentAPIKEY").html("API Key not set.");
 			case "invalid":
 
 				// Tell user that the key is invalid or undefined.
