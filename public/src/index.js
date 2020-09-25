@@ -13,6 +13,7 @@ import "./keyCheck.js";
 import "./dropdown.js";
 import "./buildInfo.js";
 import "./proxyManager.js";
+import "./settingManager.js";
 
 window.match={};
 
