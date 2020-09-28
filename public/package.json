@@ -9,9 +9,8 @@
 	"sideEffects": false,
 	"main": "src/index.js",
 	"scripts": {
-		"test": "sh buildScripts/test.sh",
-		"build": "sh buildScripts/build.sh",
-		"generateDemo": "sh buildScripts/generateDemo.sh"
+		"test": "node buildScripts test",
+		"build": "node buildScripts build"
 	},
 	"author": "Jyles Coad-Ward [jyles@dariox.club]",
 	"contributors": [
@@ -28,6 +27,7 @@
 		"webpack-cli": "^3.3.12"
 	},
 	"dependencies": {
+		"archiver": "^5.0.2",
 		"battlegrounds-revisited": "^1.5.5",
 		"jquery": "^3.5.1",
 		"md5": "^2.3.0",
