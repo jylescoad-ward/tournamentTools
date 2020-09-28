@@ -1,54 +1,158 @@
 /*
+-	tournamentTools buildScripts v0.2	-
+-	   Created 27th September 2020   	-
+-	   Edited  28th September 2020   	-
 
-	tournamentTools buildScripts v0.1
-		27th September 2020
-
-	Copyright 2020 Jyles Coad-Ward
+	     2020(c) Jyles Coad-Ward
 */
 
-// Check if program is being ran from cli
 
 const fs = require("fs");
+const path = require("path")
 const webpack = require("webpack")
+const archiver = require('archiver')
+const md5 = require("md5")
+
 
 var parameters = {
-	ranFromCLI: process.argv[1].includes("buildScripts.js"),
+	ranFromCLI: process.argv[1].includes("buildScripts"),
 }
-
-if (parameters.ranFromCLI){
-	switch (process.argv[2]) {
-		case "generateDemo":
-			funk.genPubDemo();
-			break;
-		default:
-
-			break;
-	}
-} else {
-	throw "buildScripts can only be ran from the file itself with the `node` executable."
-}
-
 
 // Functions
+var f = {};
 
-var funk = {}
-
+// Webpack Compile
 function compile(configLocation) {
 	const compiler = webpack(require(configLocation))
 	compiler.run((err,stats)=>{
 		if(err) throw err;
-		console.log(stats);
+		console.log(`## Compiled "${stats.compilation.options.name}" (${stats.compilation.outputOptions.filename}) in ${stats.endTime - stats.startTime}ms`);
 	})
 }
 
-compile("./demo.webpack.config.js")
+f.packFolder = (folderToPack,packedFileLocation)=>{
+	var file_system = require('fs');
 
-funk.genPubDemo = ()=>{
-	compile("./demo.webpack.config.js");
-	fs.unlink("./../demo/",(e)=>{
-		if (e) throw e;
-		console.log("deleted demo directory")
-	})
+	var output = file_system.createWriteStream(packedFileLocation);
+	var archive = archiver('zip');
+
+	output.on('close', function () {
+		console.log(`${packedFileLocation} - ${archive.pointer()} bytes`);
+	});
+
+	archive.on('error', function(err){
+	    throw err;
+	});
+
+	archive.pipe(output);
+
+	// append files from a sub-directory and naming it `new-subdir` within the archive (see docs for more options):
+	archive.directory(folderToPack, false);
+	archive.finalize();
 }
 
-module.exports = funk;
+f.incrementPackage = ()=>{
+	const file = require('./package.json');
+    file.build.number++;
+    var curDate = new Date();
+    file.build.date = `${curDate.getFullYear()}_${curDate.getMonth()}_${curDate.getDate()}`;
+    file.build.timestamp = Math.round(curDate.valueOf()/1000);
+
+    fs.writeFile("./package.json", JSON.stringify(file,null,"\t"), function writeJSON(err) {
+        if (err) throw err;
+        console.log("## Incremented Package Build");
+    });
+	return;
+}
+f.fileMD5 = (fileToRead)=>{
+	var retVal = "";
+	fs.readFile(fileToRead, function(err, buf) {
+		if(err) throw err;
+		retVal = buf;
+	});
+	return md5(retVal);
+}
+
+f.preBuild = ()=>{
+	fs.readdir("dist/",(e,files)=>{
+		files.forEach((f)=>{
+			if (f.endsWith(".js")) {
+				fs.unlink(`dist/${f}`,(e)=>{
+					console.log(`Removed "dist/${f}"`)
+				})
+			}
+		})
+	})
+	console.log("## Removed old bundle(s)")
+	f.incrementPackage();
+	return;
+}
+
+f.postBuild = async ()=>{
+	/*
+	== task list ==
+		- pack up dist and src folders
+		- calculate md5 of archives
+		- append this release to history.csv
+		- print md5
+	*/
+	// Pack soruce and dist folders.
+	var fN = {
+		src: `release/${require("./package.json").build.number}-src.zip`,
+		dist: `release/${require("./package.json").build.number}-dist.zip`,
+		history: `release/history.csv`
+	};
+
+	// zip up files
+	f.packFolder("src/",`${fN.src}`);
+	f.packFolder("dist/",`${fN.dist}`);
+
+
+	// append to history csv
+	var historyDataToAppend = `\r\n${require("./package.json").build.number},${require("./package.json").build.timestamp},${require("os").userInfo().username},${f.fileMD5(fN.src)},${f.fileMD5(fN.dist)}`
+	fs.appendFileSync(fN.history,historyDataToAppend,(e)=>{
+		if(e)throw e;
+		console.log("## Added current version to history");
+	});
+
+	// print md5
+	console.log("========================================");
+	console.log(`${f.fileMD5(fN.src)} \n\r ${fN.src}\n\r `);
+	console.log(`${f.fileMD5(fN.dist)} \n\r  ${fN.dist}\n\r `);
+	console.log("========================================");
+}
+
+module.exports = f;
+
+// Check if program is being ran from cli
+if (parameters.ranFromCLI){
+	menu();
+}
+
+async function menu(){
+	switch (process.argv[2]) {
+		case "incrementPackage":
+			f.incrementPackage();
+			break;
+		case "preBuild":
+			f.preBuild();
+			break;
+		case "postBuild":
+			f.postBuild();
+			break;
+		case "build":
+			f.preBuild();
+			compile("./webpack.config.js");
+			f.postBuild();
+			break;
+		case "test":
+			f.preBuild();
+			compile("./webpack.config.js");
+			break;
+		default:
+			throw "No buildScript was defined.";
+			break;
+	}
+}
+
+//
