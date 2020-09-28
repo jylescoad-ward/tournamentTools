@@ -24,6 +24,13 @@ module.exports = function() {
 				//$("#userExportSettings").fadeIn("fast");
 				$("#PUBGUploadUserGroup").fadeOut("fast");
 
+				if (result === undefined) {
+					console.div("[exportUser] Result is undefined, invalid user?");
+					setTimeout(()=>{
+						custLoader.hide()
+					},5000)
+					return;
+				}
 				require("./UserToHTML.js")(result[0]);
 
 				var downloadString_fileName = `user-${result[0].attributes.name}-${moment(new Date()).unix()}.json`;

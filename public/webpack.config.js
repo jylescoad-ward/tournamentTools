@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+	name: "tournamentTools",
 	cache: false,
     mode: 'development',
     entry: './src/index.js',
