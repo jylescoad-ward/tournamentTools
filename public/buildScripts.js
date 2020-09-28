@@ -149,6 +149,15 @@ async function menu(){
 			f.preBuild();
 			compile("./webpack.config.js");
 			break;
+		case "b64":
+				if (process.argv[3] === undefined) {
+					console.log("no file given, aborting...");
+					process.exit(2);
+				}
+				fs.readFile(process.argv[3],'utf8',(err,f)=>{
+					console.log("-------- BASE64 --------\r\n",Buffer.from(f).toString('base64'))
+				})
+			break;
 		default:
 			throw "No buildScript was defined.";
 			break;
