@@ -1,2 +1,3 @@
-build number,build date,user
-159,1600922271,jyles.coad-ward
+build number,build unix time,user,source md5,distribution md5
+159,1600922271,jyles.coad-ward,undefined,undefined
+171,1600925092,ubuntu,d41d8cd98f00b204e9800998ecf8427e,d41d8cd98f00b204e9800998ecf8427e
